@@ -15,6 +15,7 @@ import arrowDiagonal from '../assets/images/arrow-diagonal.svg';
  */
 
 const Header = () => {
+  const isAgencyPage = window.location.pathname.replace(/\/+$/, '') === '/agencia';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLightSection, setIsLightSection] = useState(false);
@@ -626,39 +627,39 @@ const Header = () => {
         <div className="flexbox_header">
           {/* Logo */}
           <div className="logo_box">
-            <a aria-label="Off-Data" href="#home" className="logotype w-inline-block w--current">
+            <a aria-label="Off-Data" href="/" className="logotype w-inline-block">
               <div className="svg_logo"></div>
             </a>
           </div>
 
           {/* Menu central (com capsule blur) */}
           <div className="menu">
-            <a data-line-reveal="" href="#home" className="link_header w-inline-block w--current">
+            <a data-line-reveal="" href="/#home" className={`link_header w-inline-block ${isAgencyPage ? '' : 'w--current'}`}>
               <div>Início</div>
             </a>
-            <a data-line-reveal="" href="#products" className="link_header w-inline-block">
+            <a data-line-reveal="" href="/#products" className="link_header w-inline-block">
               <div>Serviços</div>
             </a>
-            <a data-line-reveal="" href="#built-for" className="link_header w-inline-block">
+            <a data-line-reveal="" href="/#built-for" className="link_header w-inline-block">
               <div>Nichos</div>
             </a>
-            <a data-line-reveal="" href="#strategies-title" className="link_header w-inline-block">
+            <a data-line-reveal="" href="/#strategies-title" className="link_header w-inline-block">
               <div>Estratégias</div>
             </a>
-            <a data-line-reveal="" href="#strategies-title" className="link_header w-inline-block">
+            <a data-line-reveal="" href="/#strategies-title" className="link_header w-inline-block">
               <div>Blog</div>
             </a>
           </div>
 
           {/* Right menu (com capsule blur) */}
           <div className="right_menu">
-            <a data-line-reveal="" href="#cutting-edge" className="link_header w-inline-block">
+            <a data-line-reveal="" href="/#cutting-edge" className="link_header w-inline-block">
               <div>Cases</div>
             </a>
-            <a data-line-reveal="" href="#built-for" className="link_header w-inline-block">
+            <a data-line-reveal="" href="/agencia" className={`link_header w-inline-block ${isAgencyPage ? 'w--current' : ''}`}>
               <div>Sobre</div>
             </a>
-            <a href="#cta-section" className="button_primary w-inline-block">
+            <a href="/#cta-section" className="button_primary w-inline-block">
               <div className="flex_button">
                 <div className="text_header">Entre em contato</div>
                 <div className="icon_arrow">
@@ -690,27 +691,27 @@ const Header = () => {
       <div className={`mobile_menu ${isMenuOpen ? 'is-open' : ''}`}>
         <div className="wrapper_mobile_menu">
           <div className="menu_links">
-            <a href="#home" className="mobile_link w-inline-block w--current" onClick={() => setIsMenuOpen(false)}>
+            <a href="/#home" className={`mobile_link w-inline-block ${isAgencyPage ? '' : 'w--current'}`} onClick={() => setIsMenuOpen(false)}>
               <div className="cube_active"></div>
               <div>Início</div>
             </a>
-            <a href="#products" className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
+            <a href="/#products" className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
               <div className="cube_active"></div>
               <div>Serviços</div>
             </a>
-            <a href="#built-for" className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
+            <a href="/agencia" className={`mobile_link w-inline-block ${isAgencyPage ? 'w--current' : ''}`} onClick={() => setIsMenuOpen(false)}>
               <div className="cube_active"></div>
               <div>Sobre</div>
             </a>
-            <a href="#built-for" className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
+            <a href="/#built-for" className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
               <div className="cube_active"></div>
               <div>Nichos</div>
             </a>
-            <a href="#cutting-edge" className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
+            <a href="/#cutting-edge" className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
               <div className="cube_active"></div>
               <div>Cases</div>
             </a>
-            <a href="#cta-section" className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
+            <a href="/#cta-section" className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
               <div className="cube_active"></div>
               <div>Contato</div>
             </a>

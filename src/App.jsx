@@ -8,6 +8,7 @@ import NewsroomSection from './components/sections/NewsroomSection';
 import CtaBoxSection from './components/sections/CtaBoxSection';
 import FooterSection from './components/sections/FooterSection';
 import LegalPage from './components/legal/LegalPage';
+import AgencyPage from './components/agency/AgencyPage';
 import './styles/globals.css';
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
 
   if (legalPaths.includes(path)) {
     return <LegalPage path={path} />;
+  }
+
+  if (path === '/agencia') {
+    return <AgencyPage />;
   }
 
   return (
