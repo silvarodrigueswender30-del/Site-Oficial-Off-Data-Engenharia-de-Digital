@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://www.offdata.digital/</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.offdata.digital/imagens/seo-arquitetura.avif</image:loc>
+      <image:title>SEO local para imobiliárias de luxo premium</image:title>
+      <image:caption>Arquitetura de luxo representando estratégia de SEO local para imobiliárias premium.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.offdata.digital/imagens/seo-clinica.avif</image:loc>
+      <image:title>Sites imersivos para clínicas médicas de alto padrão</image:title>
+      <image:caption>Clínica médica de alto padrão representando sites imersivos e SEO local em Uberlândia.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.offdata.digital/imagens/trafego-b2b-triangulo-mineiro.avif</image:loc>
+      <image:title>Tráfego de alta intenção para operações B2B no Triângulo Mineiro</image:title>
+      <image:caption>Operações logísticas e agroindustriais conectadas por estratégias de tráfego B2B no Triângulo Mineiro.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.offdata.digital/imagens/performance-web-marcas-regionais.avif</image:loc>
+      <image:title>Performance web para marcas regionais premium</image:title>
+      <image:caption>Empresas regionais conectadas por experiências digitais e sites de alta performance.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.offdata.digital/imagens/seo-tecnico-autoridade-digital.avif</image:loc>
+      <image:title>SEO técnico e autoridade digital</image:title>
+      <image:caption>Estrutura corporativa conectada representando autoridade digital sustentada por SEO técnico.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.offdata.digital/imagens/arquitetura-digital-operacoes-uberlandia.avif</image:loc>
+      <image:title>Arquitetura digital para operações em Uberlândia</image:title>
+      <image:caption>Agro, logística e empresas conectadas por arquitetura digital em Uberlândia.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.offdata.digital/imagens/mercados-high-ticket-uberlandia.avif</image:loc>
+      <image:title>Infraestrutura digital para mercados high-ticket em Uberlândia</image:title>
+      <image:caption>Centro empresarial premium conectado por infraestrutura digital em Uberlândia.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/privacy-policy</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/terms-and-conditions</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/cookie-policy</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

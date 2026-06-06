@@ -1,0 +1,46 @@
+node_modules/
+.env
+.env.local
+.env.*
+!.env.example
+.DS_Store
+dist/
+build/
+*.log
+.vscode/
+.idea/
+.vercel/
+coverage/
+
+# Materiais locais de desenvolvimento e referência
+/docs/
+/01_BUILT_FOR_ANALISE_COMPLETA.md
+/BuiltForSection.jsx
+/GUIA_IMPLEMENTACAO_BUILT_FOR.md
+/STATUS.md
+/start-dev.cmd
+src/build_jsx.js
+src/build_jsx.py
+src/extract_css.js
+src/scratch.css
+src/css.txt
+src/head.txt
+src/mid.txt
+src/scratch.js
+src/tail.txt
+src/assets/images/69e8edffdc325c65777f3715_side_image-p-800.avif
+src/assets/images/Off - Data.svg
+src/assets/images/cantor8-logo.svg
+src/assets/images/isologo-brancoeazul.svg
+src/assets/images/isologoazul.svg
+src/assets/images/newsroom/
+
+# Arquivos-fonte preservados localmente; o site usa as versões otimizadas
+public/imagens/ogimage.png
+public/logos-parceiros/01_simbolo_logo_RGB.png
+public/logos-parceiros/FRS.png
+public/logos-parceiros/logo (1).svg
+public/logos-parceiros/Logo-Branca-300x191.png.webp
+public/logos-parceiros/logo.avif
+public/logos-parceiros/logo.png
+public/logos-parceiros/wDEIMCNeDnF3M2JLgwVqGvSCZA.png
