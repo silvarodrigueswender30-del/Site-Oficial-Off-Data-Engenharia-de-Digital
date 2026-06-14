@@ -4,7 +4,144 @@
   "installCommand": "npm ci --no-audit --no-fund --loglevel=error",
   "buildCommand": "npm run build",
   "outputDirectory": "build",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "offdata.digital"
+        }
+      ],
+      "destination": "https://www.offdata.digital/$1",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/agencia",
+      "destination": "/agencia/index.html"
+    },
+    {
+      "source": "/agencia/",
+      "destination": "/agencia/index.html"
+    },
+    {
+      "source": "/criacao-de-sites-uberlandia",
+      "destination": "/criacao-de-sites-uberlandia/index.html"
+    },
+    {
+      "source": "/criacao-de-sites-uberlandia/",
+      "destination": "/criacao-de-sites-uberlandia/index.html"
+    },
+    {
+      "source": "/seo-local-uberlandia",
+      "destination": "/seo-local-uberlandia/index.html"
+    },
+    {
+      "source": "/seo-local-uberlandia/",
+      "destination": "/seo-local-uberlandia/index.html"
+    },
+    {
+      "source": "/trafego-pago-uberlandia",
+      "destination": "/trafego-pago-uberlandia/index.html"
+    },
+    {
+      "source": "/trafego-pago-uberlandia/",
+      "destination": "/trafego-pago-uberlandia/index.html"
+    },
+    {
+      "source": "/landing-pages-high-ticket",
+      "destination": "/landing-pages-high-ticket/index.html"
+    },
+    {
+      "source": "/landing-pages-high-ticket/",
+      "destination": "/landing-pages-high-ticket/index.html"
+    },
+    {
+      "source": "/performance-web",
+      "destination": "/performance-web/index.html"
+    },
+    {
+      "source": "/performance-web/",
+      "destination": "/performance-web/index.html"
+    },
+    {
+      "source": "/automacao-comercial-b2b",
+      "destination": "/automacao-comercial-b2b/index.html"
+    },
+    {
+      "source": "/automacao-comercial-b2b/",
+      "destination": "/automacao-comercial-b2b/index.html"
+    },
+    {
+      "source": "/conteudo-tecnico",
+      "destination": "/conteudo-tecnico/index.html"
+    },
+    {
+      "source": "/conteudo-tecnico/",
+      "destination": "/conteudo-tecnico/index.html"
+    },
+    {
+      "source": "/estrategias/seo-local-imobiliarias-luxo",
+      "destination": "/estrategias/seo-local-imobiliarias-luxo/index.html"
+    },
+    {
+      "source": "/estrategias/seo-local-imobiliarias-luxo/",
+      "destination": "/estrategias/seo-local-imobiliarias-luxo/index.html"
+    },
+    {
+      "source": "/estrategias/sites-imersivos-clinicas-medicas",
+      "destination": "/estrategias/sites-imersivos-clinicas-medicas/index.html"
+    },
+    {
+      "source": "/estrategias/sites-imersivos-clinicas-medicas/",
+      "destination": "/estrategias/sites-imersivos-clinicas-medicas/index.html"
+    },
+    {
+      "source": "/estrategias/trafego-alta-intencao-b2b",
+      "destination": "/estrategias/trafego-alta-intencao-b2b/index.html"
+    },
+    {
+      "source": "/estrategias/trafego-alta-intencao-b2b/",
+      "destination": "/estrategias/trafego-alta-intencao-b2b/index.html"
+    },
+    {
+      "source": "/estrategias/performance-web-marcas-high-ticket",
+      "destination": "/estrategias/performance-web-marcas-high-ticket/index.html"
+    },
+    {
+      "source": "/estrategias/performance-web-marcas-high-ticket/",
+      "destination": "/estrategias/performance-web-marcas-high-ticket/index.html"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"

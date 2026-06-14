@@ -1,0 +1,740 @@
+/* =========================================================
+   ImmersiveSites.module.css  —  v4 OFF-DATA IDENTITY
+   Estrutura: C8 Registry layout
+   Tipografia/cores/botões: design system Off-Data
+   
+   Variáveis Off-Data:
+     --blue: #044ab3
+     --black: #151515
+     --white: #ffffff
+   Fonte principal: 'PP Neue Montreal' (herdada do body global)
+   Fonte técnica: 'Fragment Mono' (apenas labels/destaques)
+   font-size base: 1vw (global body) → todos os em são relativos a isso
+   ========================================================= */
+
+/* ---------- Page Root ---------- */
+/* Não redefinimos font-family aqui — herdamos do body global (PP Neue Montreal) */
+.pageContainer {
+  background: #151515; /* var(--black) */
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HERO — dark, flex row
+   Ref C8: template_product → padding: 10em 1.75rem 1.75rem, flex row
+   Ref Off-Data: wrapper_hero → padding: 8.5rem 1.75rem 2.5em
+   Combinamos: padding Off-Data no topo, estrutura flex C8
+   ══════════════════════════════════════════════════════════ */
+.heroSection {
+  background: #151515; /* var(--black) — mesma cor do --black Off-Data */
+  min-height: 85vh;
+  display: flex;
+  flex-direction: row;
+  /* Ref Off-Data: padding 8.5rem top. Ref C8: 10em top + 1.75rem sides.
+     Usamos o padrão Off-Data de padding, reduzindo bottom para ficar compacto */
+  padding: 8.5rem 1.75rem 4em;
+  position: relative;
+}
+
+/* LEFT col — Ref C8: left_info width 50–60% */
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  flex-shrink: 0;
+}
+
+/* Tag — Ref Off-Data: .caption (Fragment Mono, 0.82em, opacity .65, uppercase)
+   Aqui usamos igual */
+.heroTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  /* Ref Off-Data: caption font-size: .82em, letter-spacing: -.02em, uppercase, Fragment Mono */
+  font-family: 'Fragment Mono', 'Courier New', monospace;
+  font-size: 0.82em;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  color: #ffffff;
+  margin-bottom: 1.5em;
+}
+
+.tagCube {
+  /* Ref Off-Data: cube_tag → pequeno quadrado azul pulsante */
+  width: 0.6em;
+  height: 0.6em;
+  background: #044ab3; /* var(--blue) */
+  flex-shrink: 0;
+  display: inline-block;
+  animation: cubePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes cubePulse {
+  0%, 100% { opacity: 1;    filter: brightness(1); }
+  25%       { opacity: 0.52; filter: brightness(1.08); }
+  50%       { opacity: 0.25; filter: brightness(1.16); }
+  75%       { opacity: 0.9;  filter: brightness(1.06); }
+}
+
+/* H1 — Ref Off-Data: .h1 → font-size: 3.9em, font-weight: 400, color: #fff, margin: 0
+   Ref Off-Data mobile: font-size: 5.6em (parece maior pq body base muda para 1.6–3.5vw)
+   REGRA: herdar font-family do body (PP Neue Montreal).
+   Mantemos font-weight: 400 (igual ao H1 da Home). */
+.heroH1 {
+  /* Ref Off-Data h1: 3.9em (em body de 1vw = ~3.9vw desktop)
+     Aumentamos levemente para dar proporção no layout de 2 colunas */
+  font-size: 3.6em;
+  font-weight: 400; /* Ref Off-Data: h1 font-weight 400 — NÃO bold */
+  line-height: 1.05;
+  letter-spacing: -0.02em; /* Ref Off-Data: caption usa -.02em; h1 segue a mesma lógica refinada */
+  color: #ffffff;
+  margin: 0 0 1em 0;
+  /* PP Neue Montreal herdada do body */
+}
+
+/* Desc — parágrafo normal Off-Data: font-weight 400, sem itálico, tamanho moderado */
+.heroDesc {
+  font-size: 1em; /* 1em = 1vw no desktop — tamanho legível e técnico */
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 0 0;
+  max-width: 42ch;
+}
+
+/* Box short — Ref C8: background: #ffffff1a, border-radius: .25em, padding: 1.35em,
+               margin-top: auto, display: flex, gap: 3% */
+.heroShortCaps {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 0.1875em; /* Ref Off-Data: button border-radius .1875em */
+  width: 100%;
+  max-width: 38em;
+  margin-top: auto;
+  padding: 1.35em;
+  display: flex;
+  gap: 3%;
+}
+
+/* Short cap item — Ref C8: left_capt Fragment Mono, uppercase, 1vw */
+.shortCap {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+/* Title do short cap — Ref Off-Data: caption style (Fragment Mono, uppercase, small) */
+.shortCapTitle {
+  font-family: 'Fragment Mono', 'Courier New', monospace;
+  font-size: 0.72em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.2;
+}
+
+/* Text do short cap */
+.shortCapText {
+  font-family: 'Fragment Mono', 'Courier New', monospace;
+  font-size: 0.65em;
+  line-height: 1.35;
+  opacity: 0.65;
+  color: #ffffff;
+}
+
+/* RIGHT col — Ref C8: right_visual width 30–35%, height 45–60%, margin-top: auto */
+.heroRight {
+  width: 35%;
+  /* Altura mínima explícita para o vídeo aparecer corretamente, mais horizontal/integrado */
+  min-height: 250px;
+  height: 45%;
+  margin-top: auto;
+  margin-left: auto;
+  border-radius: 0.1875em;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  background: #0d0d0d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+}
+
+.heroRight video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* z-index acima do fallback */
+  z-index: 2;
+}
+
+/* Fallback: visível apenas quando vídeo falha em carregar
+   z-index ABAIXO do vídeo */
+.videoFallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(135deg, #0a0f20 0%, #044ab3 60%, #0a1a3a 100%);
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════════════════
+   OPERATIONAL CAPABILITIES — dark bg
+   ══════════════════════════════════════════════════════════ */
+.operational {
+  background: #151515;
+  position: relative;
+  z-index: 2;
+}
+
+.operationalInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  /* Ref C8: wrapper_gen.template padding: 10em 1.75rem */
+  padding: 10em 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.operationalTop {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+/* Tag — Ref Off-Data: caption style */
+.sectionTagLine {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: 'Fragment Mono', 'Courier New', monospace;
+  font-size: 0.82em;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  opacity: 0.5;
+  color: #ffffff;
+}
+
+/* H2 — Ref Off-Data: weight 400, PP Neue Montreal.
+   Ref C8: heading_opertional width: 50% */
+.operationalH2 {
+  /* Escala entre a h1 da Home (3.9em) e algo um pouco menor para hierarquia */
+  font-size: 3.2em;
+  font-weight: 400; /* Igual ao H1 Off-Data */
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  width: 50%;
+  /* PP Neue Montreal herdado */
+}
+
+/* Bottom flex — Ref C8: flex row, margin-top: 9em */
+.operationalBottom {
+  display: flex;
+  flex-direction: row;
+  margin-top: 9em;
+  width: 100%;
+}
+
+/* Desc — Ref C8: op_p width: 33ch. Off-Data: peso 400, linha 1.55 */
+.operationalDesc {
+  width: 33ch;
+  font-size: 1.35em;
+  font-weight: 400;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: -0.005em;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* List — Ref C8: right_list width 50%, margin-left: auto */
+.capabilitiesList {
+  width: 50%;
+  margin-left: auto;
+  margin-top: 0;
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Item — Ref C8: list_capabilities padding 1.2em, Fragment Mono, uppercase.
+   Aplicamos Fragment Mono pois é um label técnico (como os TOKENS da Home) */
+.capabilityItem {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1.2em 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  /* Fragment Mono: APENAS para itens de lista técnica — consistente com canvas da Home */
+  font-family: 'Fragment Mono', 'Courier New', monospace;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ══════════════════════════════════════════════════════════
+   SYSTEM PROPERTIES — Blue section
+   Off-Data blue: #044ab3 = var(--blue)
+   ══════════════════════════════════════════════════════════ */
+.propertiesSection {
+  background: #044ab3; /* var(--blue) */
+  position: relative;
+}
+
+.propertiesInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10em 1.75rem;
+}
+
+/* Ref C8: middle_properties text-align center */
+.propertiesHeadingWrap {
+  text-align: center;
+}
+
+/* H2 Properties — Ref C8: 7.3em grande. Off-Data: weight 400, PP Neue Montreal.
+   Combinamos: escala grande da referência mas peso leve Off-Data */
+.propertiesHeading {
+  font-size: clamp(3rem, 6.5vw, 7em);
+  font-weight: 400; /* Ref Off-Data: não bold */
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Grid — Ref C8: 4 colunas, gap 1em */
+.cardsGrid {
+  margin-top: 6em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  align-items: start;
+}
+
+/* Mosaic stagger effect for desktop matching C8 exactly */
+@media (min-width: 992px) {
+  .cardsGrid > .card:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .cardsGrid > .card:nth-child(2) { grid-column: 2; grid-row: 1; margin-top: 4em; }
+  .cardsGrid > .card:nth-child(3) { grid-column: 4; grid-row: 1; margin-top: -2em; }
+  .cardsGrid > .card:nth-child(4) { grid-column: 1; grid-row: 2; margin-top: -2em; }
+  .cardsGrid > .card:nth-child(5) { grid-column: 3; grid-row: 2; margin-top: 2em; }
+  .cardsGrid > .card:nth-child(6) { grid-column: 4; grid-row: 2; }
+}
+
+/* Card — Ref C8: background #ffffff1a, border-radius .25em, padding 1em
+   IMPORTANTE: cards devem ter altura mínima para o margin-top: auto funcionar */
+.card {
+  background-color: rgba(255, 255, 255, 0.10);
+  border-radius: 0.1875em;
+  padding: 1.15em 1.15em 1em; /* Mais compacto */
+  display: flex;
+  flex-direction: column;
+  min-height: 14em; /* Mais baixo que os 16em anteriores */
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* Número fica fixo no topo */
+  flex-shrink: 0;
+}
+
+/* Número — Fragment Mono */
+.cardNumber {
+  font-family: 'Fragment Mono', 'Courier New', monospace;
+  font-size: 0.72em;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Card body — Ref C8: margin-top: 8em */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  margin-top: 8em;
+  padding-top: 2em;
+}
+
+/* Card title — PP Neue Montreal herdada, NÃO monospace */
+.cardTitle {
+  font-size: 0.85em;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.2;
+  /* Uppercase técnico — consistente com list_title da referência */
+  text-transform: uppercase;
+}
+
+/* Card desc — Fragment Mono pequeno, uppercase, como na C8 */
+.cardText {
+  font-family: 'Fragment Mono', 'Courier New', monospace;
+  font-size: 0.6em;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CTA WHITE SECTION
+   Ref C8: height 90vh, padding 8em 1.25rem 3.5em
+   Off-Data: botão branco/azul, PP Neue Montreal
+   ══════════════════════════════════════════════════════════ */
+.ctaSection {
+  background: #ffffff;
+  min-height: 90vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ctaInner {
+  position: relative;
+  z-index: 2;
+  padding: 8em 1.75rem 3.5em;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ctaContentGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+  max-width: 600px;
+  margin-left: auto;
+  gap: 1.5em;
+  position: relative;
+  z-index: 2;
+}
+
+.ctaTagLine {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: 'Fragment Mono', 'Courier New', monospace;
+  font-size: 0.82em;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #044ab3;
+  margin-bottom: 0;
+}
+
+.ctaTagCube {
+  width: 0.6em;
+  height: 0.6em;
+  background: #044ab3;
+  display: inline-block;
+  animation: cubePulse 1.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.ctaH2 {
+  font-size: clamp(2.2rem, 4.5vw, 5em);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: #044ab3;
+  margin: 0;
+  width: 100%;
+  padding-bottom: 0;
+}
+
+.ctaButtonWrap {
+  margin-top: 0.5em;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4.5em;
+  background-color: #044ab3;
+  color: #ffffff;
+  border-radius: 0.1875em;
+  padding: 0.25em 0.25em 0.25em 1em;
+  font-size: 0.95em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 320ms;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0;
+}
+
+.ctaButton:hover {
+  opacity: 0.88;
+}
+
+.ctaArrow {
+  background-color: #ffffff;
+  border-radius: 0.1875em;
+  width: 2.375em;
+  height: 2.375em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  color: #044ab3;
+  flex-shrink: 0;
+}
+
+
+
+/* SVG Lines */
+.ctaLines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ctaLinesSvg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Vídeo fallback z-index */
+/* Tablet ≤ 991px */
+@media (max-width: 991px) {
+  .heroSection {
+    padding: 7rem 1.25rem 4em;
+  }
+
+  .heroLeft {
+    width: 58%;
+  }
+
+  .heroRight {
+    width: 38%;
+    min-height: 260px;
+  }
+
+  .heroShortCaps {
+    width: 100%;
+    max-width: none;
+  }
+
+  .operationalH2 {
+    width: 100%;
+    font-size: 2.6em;
+  }
+
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 5em;
+  }
+
+  .card {
+    min-height: 14em;
+  }
+
+  .cardBody {
+    margin-top: 6em;
+  }
+
+  .ctaContentGrid {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .ctaH2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .ctaButton {
+    gap: 2em;
+  }
+}
+
+/* Mobile landscape ≤ 767px */
+@media (max-width: 767px) {
+  .heroSection {
+    flex-direction: column;
+    padding: 6rem 1.25rem 3em;
+    min-height: auto;
+  }
+
+  .heroLeft {
+    width: 100%;
+  }
+
+  /* Vídeo: full width abaixo do texto, proporção 16:9 */
+  .heroRight {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    margin-top: 2em;
+    margin-left: 0;
+  }
+
+  /* heroTag: manter visível no mobile mas menor */
+  .heroTag {
+    font-size: 0.7em;
+  }
+
+  .heroH1 {
+    font-size: 2.8em;
+  }
+
+  .heroShortCaps {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .shortCap {
+    width: 100%;
+  }
+
+  .operationalInner {
+    padding: 5em 1.25rem;
+  }
+
+  .operationalBottom {
+    flex-direction: column;
+    margin-top: 3em;
+  }
+
+  .operationalDesc {
+    width: 100%;
+    max-width: none;
+    font-size: 1em;
+  }
+
+  .capabilitiesList {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 2.5em;
+  }
+
+  /* Cards: 2 colunas no landscape mobile */
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75em;
+  }
+
+  .card {
+    min-height: 12em;
+  }
+  
+  .card:nth-child(even) {
+    margin-top: 2em;
+  }
+
+  .cardText {
+    opacity: 0.85;
+  }
+
+  .propertiesInner {
+    padding: 5em 1.25rem;
+  }
+
+  .propertiesHeading {
+    font-size: clamp(2.2rem, 8vw, 4rem);
+  }
+
+  .ctaSection {
+    min-height: auto;
+  }
+
+  .ctaInner {
+    padding: 5em 1.25rem 3em;
+  }
+
+  .cardBody {
+    margin-top: 4em;
+  }
+
+  .ctaContentGrid {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .ctaH2 {
+    width: 100%;
+    padding-bottom: 1.5em;
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+  }
+
+  .ctaButton {
+    gap: 1.5em;
+    font-size: 0.9em;
+  }
+}
+
+/* Portrait mobile ≤ 479px */
+@media (max-width: 479px) {
+  .heroSection {
+    padding: 5.5rem 0.75rem 2.5rem;
+  }
+
+  .heroH1 {
+    /* Ref Off-Data: clamp(2.35rem, 10.3vw, 3.15rem) */
+    font-size: clamp(2rem, 9.5vw, 2.8rem);
+    line-height: 1;
+  }
+
+  .heroDesc {
+    font-size: 0.85em;
+  }
+
+  .heroShortCaps {
+    padding: 1em;
+  }
+
+  /* Cards: 1 coluna no portrait */
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.6em;
+  }
+
+  .card {
+    min-height: auto;
+  }
+
+  .operationalInner {
+    padding: 4em 0.75rem;
+  }
+
+  .propertiesInner {
+    padding: 4em 0.75rem;
+  }
+
+  .ctaInner {
+    padding: 4em 0.75rem 2.5em;
+  }
+
+  .ctaButton {
+    gap: 1em;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .ctaDesc {
+    font-size: 0.85em;
+  }
+}

@@ -5,7 +5,7 @@ const HeroSection = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    // ─── WebGL Circle — Cantor8 Hero Animation ───────────────────────────────
+    // WebGL circle used in the Off-Data hero animation.
     const PAGE_BG = "#044AB3";
     const BASE_COLOR = "#FFFFFF";
 

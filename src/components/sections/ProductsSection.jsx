@@ -452,6 +452,7 @@ const ProductsSection = () => {
     {
       id: 1,
       slug: 'c8-enterprise-wallet',
+      url: '/criacao-de-sites-uberlandia',
       title: 'Sites Imersivos Premium',
       category: 'WEB',
       description: 'Experiências em Next.js, Three.js e GSAP para marcas premium que precisam vender autoridade antes da primeira reunião comercial.',
@@ -461,6 +462,7 @@ const ProductsSection = () => {
     {
       id: 2,
       slug: 'c8-registry',
+      url: '/seo-local-uberlandia',
       title: 'SEO Local',
       category: 'LOCAL',
       description: 'Estratégia de SEO local para Uberlândia e Triângulo Mineiro, posicionando serviços premium diante de decisores prontos para comprar.',
@@ -470,6 +472,7 @@ const ProductsSection = () => {
     {
       id: 3,
       slug: 'c8-vault',
+      url: '/trafego-pago-uberlandia',
       title: 'Tráfego Cirúrgico',
       category: 'MÍDIA',
       description: 'Campanhas de alta intenção com segmentação cirúrgica, criadas para gerar oportunidades comerciais qualificadas sem desperdiçar verba local.',
@@ -478,7 +481,8 @@ const ProductsSection = () => {
     {
       id: 4,
       slug: 'private-transfer-infrastructure',
-      title: 'Landing Pages High-Ticket',
+      url: '/landing-pages-high-ticket',
+      title: 'Landing Pages High Ticket',
       category: 'CONVERSÃO',
       description: 'Páginas desenhadas para ofertas high-ticket, com narrativa executiva, prova visual e estrutura focada em conversão local mensurável B2B.',
       image: 'https://cdn.prod.website-files.com/69e8d4ff1e2b0b76c046017e/69e8e81fe098f5b0efd912cb_4.avif',
@@ -486,6 +490,7 @@ const ProductsSection = () => {
     {
       id: 5,
       slug: 'daml-smart-contract-development',
+      url: '/performance-web',
       title: 'Performance Web de Precisão',
       category: 'VELOCIDADE',
       description: 'Otimização técnica para velocidade, responsividade e estabilidade, protegendo ranqueamento, experiência mobile e performance em campanhas locais ativas.',
@@ -494,6 +499,7 @@ const ProductsSection = () => {
     {
       id: 6,
       slug: 'validator-nodes',
+      url: '/conteudo-tecnico',
       title: 'Conteúdo Técnico',
       category: 'AUTORIDADE',
       description: 'Textos estratégicos para comunicar autoridade, especialização e diferenciação em mercados B2B regionais competitivos premium.',
@@ -503,6 +509,7 @@ const ProductsSection = () => {
     {
       id: 7,
       slug: 'swap-exchange-modules',
+      url: '/automacao-comercial-b2b',
       title: 'Automação Comercial B2B Integrada',
       category: 'OPERAÇÃO',
       description: 'Integrações e rotinas digitais que conectam captação, atendimento e mensuração para operações comerciais mais previsíveis locais.',
@@ -1187,7 +1194,7 @@ const ProductsSection = () => {
             <div className="products_list w-dyn-items">
             {products.map((product) => (
               <div key={product.id} className="product_item w-dyn-item">
-                <a href="#cta-section" className="product_card w-inline-block">
+                <a href={product.url || "#cta-section"} className="product_card w-inline-block">
                   <div className="tag_link">
                     <div className="tagline_product">{product.category}</div>
                     <div className="product_arrow">
@@ -1234,7 +1241,7 @@ const ProductsSection = () => {
               <div ref={mobileCarouselRef} className="splide__list products_mobile_track">
                 {products.map((product) => (
                   <div key={`mobile-${product.id}`} className="splide__slide products_mobile_slide">
-                    <a href="#cta-section" className="product_card w-inline-block">
+                    <a href={product.url || "#cta-section"} className="product_card w-inline-block">
                       <div className="tag_link">
                         <div className="tagline_product">{product.category}</div>
                         <div className="product_arrow">

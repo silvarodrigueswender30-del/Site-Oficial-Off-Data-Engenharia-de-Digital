@@ -11,8 +11,10 @@
 - [x] `.gitignore` exclui `node_modules`, `build`, `.env` e logs
 - [x] Domínio canônico, sitemap e robots atualizados para `www.offdata.digital`
 - [x] Imagem dedicada para compartilhamento social (`og:image`)
-- [x] Navegação interna aponta para seções existentes da landing page
+- [x] Navegação interna aponta para seções existentes e para a página `/agencia`
+- [x] Imagens externas utilizadas pelos cards da home preservadas e validadas
 - [x] Rotas diretas e páginas jurídicas configuradas
+- [x] Rota `/agencia` gera HTML estático com metadados sociais e SEO próprios
 - [x] Dependências e lockfile validados com instalação limpa
 
 ## Dependências
@@ -53,4 +55,3 @@ Após o primeiro deploy:
 - Configurar e testar o endereço `privacidade@offdata.digital`.
 - Submeter Política de Privacidade, Termos de Uso e Política de Cookies à revisão jurídica final.
 - Conectar o formulário do rodapé a um serviço real.
-- Substituir ou validar os logos, links e imagens externos herdados do projeto de referência.

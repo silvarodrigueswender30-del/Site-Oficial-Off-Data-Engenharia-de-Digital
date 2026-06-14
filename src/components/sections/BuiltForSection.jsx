@@ -4,7 +4,7 @@ import arrowDiagonal from '../../assets/images/arrow-diagonal.svg';
 /**
  * BuiltForSection
  *
- * Replica exata da seção BUILT_FOR do site Cantor8
+ * Seção de posicionamento e segmentos atendidos pela Off-Data.
  * - SVG animado com stroke-dasharray driven by scroll
  * - Padrão grid complexo para parceiros
  * - Responsividade completa (mobile, tablet, desktop)
@@ -802,7 +802,7 @@ const BuiltForSection = () => {
               </div>
             </div>
             <div className="button_wrap">
-              <a href="#cta-section" className="button">
+              <a href="/agencia" className="button">
                 <div className="flex_button_general">
                   <div>A Agência</div>
                   <div className="arrow_button">

@@ -20,6 +20,7 @@ const articles = [
     imageWidth: 1600,
     imageHeight: 894,
     alt: 'Arquitetura de luxo representando estratégia de SEO local para imobiliárias premium',
+    url: '/estrategias/seo-local-imobiliarias-luxo',
   },
   {
     category: 'Clínicas',
@@ -31,6 +32,7 @@ const articles = [
     imageWidth: 1600,
     imageHeight: 894,
     alt: 'Clínica médica de alto padrão representando sites imersivos e SEO local em Uberlândia',
+    url: '/estrategias/sites-imersivos-clinicas-medicas',
   },
   {
     category: 'Mídia',
@@ -42,6 +44,7 @@ const articles = [
     imageWidth: 1600,
     imageHeight: 894,
     alt: 'Operações logísticas, agroindústria e tráfego B2B conectados no Triângulo Mineiro',
+    url: '/estrategias/trafego-alta-intencao-b2b',
   },
   {
     category: 'Web',
@@ -53,6 +56,7 @@ const articles = [
     imageWidth: 1600,
     imageHeight: 894,
     alt: 'Empresas regionais conectadas por experiências digitais e sites de alta performance',
+    url: '/estrategias/performance-web-marcas-high-ticket',
   },
   {
     category: 'Autoridade',
@@ -390,7 +394,7 @@ const NewsroomSection = () => {
       aria-label={`${index + 1} of ${articles.length}`}
       aria-labelledby={`${mobile ? 'mobile' : 'desktop'}-strategy-title-${index}`}
     >
-      <a href="#cta-section" className="article_link w-inline-block">
+      <a href={article.url || '#cta-section'} className="article_link w-inline-block">
         <div className="image_article">
           <img
             src={article.image}

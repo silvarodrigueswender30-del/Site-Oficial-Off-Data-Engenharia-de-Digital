@@ -4,7 +4,7 @@ import offDataBlueLogo from '../assets/images/offdataazul.svg';
 import arrowDiagonal from '../assets/images/arrow-diagonal.svg';
 
 /**
- * Header Component — Conversão fiel do Cantor8 Webflow original
+ * Cabeçalho principal da Off-Data.
  *
  * Estrutura original preservada:
  * header > wrapper_header > flexbox_header
@@ -15,7 +15,8 @@ import arrowDiagonal from '../assets/images/arrow-diagonal.svg';
  */
 
 const Header = () => {
-  const isAgencyPage = window.location.pathname.replace(/\/+$/, '') === '/agencia';
+  const isAgencyPage = window.location.pathname.replace(/\/+$/, '') === '/agencia'
+    || new URLSearchParams(window.location.search).get('page') === 'agencia';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLightSection, setIsLightSection] = useState(false);
@@ -117,7 +118,7 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'is-scrolled' : ''} ${isLightSection ? 'is-light-section' : ''}`} ref={headerRef}>
       <style>{`
         /* ═══════════════════════════════════════════════════════════════════
-           HEADER — Conversão fiel do Webflow original do Cantor8
+           HEADER OFF-DATA
            ═══════════════════════════════════════════════════════════════════ */
 
         .header {

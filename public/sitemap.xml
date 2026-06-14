@@ -5,7 +5,7 @@
 >
   <url>
     <loc>https://www.offdata.digital/</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -46,26 +46,79 @@
   </url>
   <url>
     <loc>https://www.offdata.digital/agencia</loc>
-    <lastmod>2026-06-06</lastmod>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.offdata.digital/imagens/performance-web-marcas-regionais.avif</image:loc>
+      <image:title>Agência digital Off-Data em Uberlândia</image:title>
+      <image:caption>Engenharia digital, posicionamento, design e aquisição para empresas em Uberlândia.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/criacao-de-sites-uberlandia</loc>
+    <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.offdata.digital/privacy-policy</loc>
-    <lastmod>2026-06-06</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.offdata.digital/seo-local-uberlandia</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.offdata.digital/terms-and-conditions</loc>
-    <lastmod>2026-06-06</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.offdata.digital/trafego-pago-uberlandia</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.offdata.digital/cookie-policy</loc>
-    <lastmod>2026-06-06</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://www.offdata.digital/landing-pages-high-ticket</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/performance-web</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/automacao-comercial-b2b</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/conteudo-tecnico</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/estrategias/seo-local-imobiliarias-luxo</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/estrategias/sites-imersivos-clinicas-medicas</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/estrategias/trafego-alta-intencao-b2b</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/estrategias/performance-web-marcas-high-ticket</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

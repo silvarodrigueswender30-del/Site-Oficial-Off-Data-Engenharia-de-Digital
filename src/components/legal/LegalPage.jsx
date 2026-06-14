@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import whiteLogo from '../../assets/images/Off - Data-branca.svg';
 
 const LAST_UPDATED = '6 de junho de 2026';
@@ -236,6 +237,12 @@ const LegalPage = ({ path }) => {
 
   return (
     <div className="legal-page">
+      <Helmet>
+        <title>{page.title} | Off-Data</title>
+        <meta name="description" content={page.description} />
+        <link rel="canonical" href={`https://www.offdata.digital${path}`} />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <style>{`
         .legal-page {
           min-height: 100vh;
