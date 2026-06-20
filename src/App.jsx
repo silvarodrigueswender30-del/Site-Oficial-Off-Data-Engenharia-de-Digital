@@ -20,6 +20,9 @@ import RealEstateSeoPage from './components/strategies/real-estate-seo/RealEstat
 import ClinicsImmersiveSitesPage from './components/strategies/clinics-immersive-sites/ClinicsImmersiveSitesPage';
 import B2BHighIntentTrafficPage from './components/strategies/b2b-high-intent-traffic/B2BHighIntentTrafficPage';
 import HighTicketWebPerformancePage from './components/strategies/high-ticket-web-performance/HighTicketWebPerformancePage';
+import AuthorityPage from './components/strategies/seo-tecnico-autoridade-digital/AuthorityPage';
+import OperationsPage from './components/strategies/automacao-operacoes-comerciais/OperationsPage';
+import { WHATSAPP_MESSAGES } from './constants/contact';
 import './styles/globals.css';
 
 function NotFound() {
@@ -101,6 +104,14 @@ function App() {
     return <HighTicketWebPerformancePage />;
   }
 
+  if (path === '/estrategias/seo-tecnico-autoridade-digital' || previewPage === 'estrategias/seo-tecnico-autoridade-digital') {
+    return <AuthorityPage />;
+  }
+
+  if (path === '/estrategias/automacao-operacoes-comerciais' || previewPage === 'estrategias/automacao-operacoes-comerciais') {
+    return <OperationsPage />;
+  }
+
   if (path === '/') {
     return (
       <div className="app">
@@ -110,7 +121,7 @@ function App() {
         <ProductsSection />
         <CuttingEdgeSection />
         <NewsroomSection />
-        <CtaBoxSection />
+        <CtaBoxSection whatsappMessage={WHATSAPP_MESSAGES.home} />
         <FooterSection />
       </div>
     );

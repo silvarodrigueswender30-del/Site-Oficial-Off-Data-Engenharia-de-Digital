@@ -121,4 +121,26 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.offdata.digital/estrategias/seo-tecnico-autoridade-digital</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.offdata.digital/imagens/imagem-estrategia/seo-tecnico-autoridade-digital-hero.avif</image:loc>
+      <image:title>SEO técnico e autoridade digital para empresas premium</image:title>
+      <image:caption>Estrutura corporativa conectada representando SEO técnico, conteúdo e autoridade digital.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.offdata.digital/estrategias/automacao-operacoes-comerciais</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://www.offdata.digital/imagens/imagem-estrategia/automacao-operacoes-comerciais-hero.avif</image:loc>
+      <image:title>Automação e operações comerciais para empresas B2B</image:title>
+      <image:caption>Operações comerciais digitais conectadas por automação, processos e atendimento B2B.</image:caption>
+    </image:image>
+  </url>
 </urlset>

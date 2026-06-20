@@ -561,7 +561,19 @@ const LegalPage = ({ path }) => {
           <img src={whiteLogo} alt="Off-Data" />
         </a>
         <div className="legal-footer__links">
-          <a href={`mailto:${PRIVACY_EMAIL}`}>{PRIVACY_EMAIL}</a>
+          <a 
+            href={`mailto:${PRIVACY_EMAIL}`}
+            onClick={() => {
+              import('../../utils/analytics').then(({ trackEvent }) => {
+                trackEvent('click_email', {
+                  source_page: window.location.pathname,
+                  link_url: `mailto:${PRIVACY_EMAIL}`
+                });
+              });
+            }}
+          >
+            {PRIVACY_EMAIL}
+          </a>
           <a href="/privacy-policy">Privacidade</a>
           <a href="/terms-and-conditions">Termos</a>
           <a href="/cookie-policy">Cookies</a>

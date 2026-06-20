@@ -1,5 +1,8 @@
 import React from 'react';
 import styles from './B2BHighIntentTrafficPage.module.css';
+import { getWhatsAppLinkProps, WHATSAPP_MESSAGES } from '../../../constants/contact';
+
+const whatsappLinkProps = getWhatsAppLinkProps(WHATSAPP_MESSAGES.b2bHighIntentTraffic);
 
 const B2BHighIntentTrafficHero = () => (
   <>
@@ -7,7 +10,7 @@ const B2BHighIntentTrafficHero = () => (
       <div className={styles.heroInner}>
         <div className={styles.heroHeading}>
           <h1>Tráfego Pago B2B de Alta Intenção no Triângulo Mineiro</h1>
-          <a className={styles.primaryButton} href="#diagnostico">
+          <a className={styles.primaryButton} {...whatsappLinkProps}>
             <span>Diagnóstico de Tráfego</span><span aria-hidden="true">↗</span>
           </a>
         </div>

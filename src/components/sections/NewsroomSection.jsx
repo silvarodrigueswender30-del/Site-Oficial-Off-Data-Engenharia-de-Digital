@@ -68,12 +68,14 @@ const articles = [
     imageWidth: 1600,
     imageHeight: 894,
     alt: 'Edifício corporativo conectado representando autoridade digital sustentada por SEO técnico',
+    url: '/estrategias/seo-tecnico-autoridade-digital',
   },
   {
     category: 'Operações',
     dateShort: '2.18.26',
     dateLong: '2.18.2026',
     dateISO: '2026-02-18',
+    url: '/estrategias/automacao-operacoes-comerciais',
     title: 'Arquitetura Digital para Agro, Facilities e Clínicas que Vendem Alto Valor em Uberlândia',
     image: '/imagens/arquitetura-digital-operacoes-uberlandia.avif',
     imageWidth: 1600,
@@ -394,7 +396,7 @@ const NewsroomSection = () => {
       aria-label={`${index + 1} of ${articles.length}`}
       aria-labelledby={`${mobile ? 'mobile' : 'desktop'}-strategy-title-${index}`}
     >
-      <a href={article.url || '#cta-section'} className="article_link w-inline-block">
+      <a href={article.url} className="article_link w-inline-block">
         <div className="image_article">
           <img
             src={article.image}
@@ -826,7 +828,7 @@ const NewsroomSection = () => {
           <div className="cms_newsroom desktop_ver">
             <div className="w-dyn-list">
               <div fs-list-element="list" role="list" className="articles_grid general_home w-dyn-items">
-                {articles.slice(0, 3).map((article, index) => renderArticleCard(article, index))}
+                {articles.map((article, index) => renderArticleCard(article, index))}
               </div>
             </div>
           </div>

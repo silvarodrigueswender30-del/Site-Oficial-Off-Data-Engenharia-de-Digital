@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import arrowBlue from '../../assets/images/arrow-blue.svg';
+import { getWhatsAppLinkProps, WHATSAPP_MESSAGES } from '../../constants/contact';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,8 +64,9 @@ const CtaLines = () => (
   </svg>
 );
 
-const CtaBoxSection = () => {
+const CtaBoxSection = ({ whatsappMessage = WHATSAPP_MESSAGES.generic } = {}) => {
   const sectionRef = useRef(null);
+  const whatsappLinkProps = getWhatsAppLinkProps(whatsappMessage);
 
   useEffect(() => {
     const root = sectionRef.current;
@@ -538,7 +540,7 @@ const CtaBoxSection = () => {
           <div className="heading_cta">
             <h2 className="h2 blue">Comece sua presença digital premium</h2>
             <div className="button_wrap">
-              <a href="#cta-section" className="button blue w-inline-block">
+              <a {...whatsappLinkProps} className="button blue w-inline-block">
                 <div className="flex_button_general">
                   <div>Entre em contato</div>
                   <div className="arrow_button white">

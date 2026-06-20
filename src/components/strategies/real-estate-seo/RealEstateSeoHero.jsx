@@ -1,5 +1,8 @@
 import React from 'react';
 import styles from './RealEstateSeoPage.module.css';
+import { getWhatsAppLinkProps, WHATSAPP_MESSAGES } from '../../../constants/contact';
+
+const whatsappLinkProps = getWhatsAppLinkProps(WHATSAPP_MESSAGES.realEstateSeo);
 
 const RealEstateSeoHero = () => (
   <>
@@ -7,7 +10,7 @@ const RealEstateSeoHero = () => (
       <div className={styles.heroInner}>
         <div className={styles.heroHeading}>
           <h1>SEO Local para Imobiliárias de Luxo em Uberlândia e Triângulo Mineiro</h1>
-          <a className={styles.primaryButton} href="#diagnostico">
+          <a className={styles.primaryButton} {...whatsappLinkProps}>
             <span>Diagnóstico de SEO</span><span aria-hidden="true">↗</span>
           </a>
         </div>

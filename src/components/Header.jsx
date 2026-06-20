@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import offDataWhiteLogo from '../assets/images/Off - Data-branca.svg';
 import offDataBlueLogo from '../assets/images/offdataazul.svg';
 import arrowDiagonal from '../assets/images/arrow-diagonal.svg';
+import { WHATSAPP_LINK_PROPS } from '../constants/contact';
 
 /**
  * Cabeçalho principal da Off-Data.
@@ -660,7 +661,7 @@ const Header = () => {
             <a data-line-reveal="" href="/agencia" className={`link_header w-inline-block ${isAgencyPage ? 'w--current' : ''}`}>
               <div>Sobre</div>
             </a>
-            <a href="/#cta-section" className="button_primary w-inline-block">
+            <a {...WHATSAPP_LINK_PROPS} className="button_primary w-inline-block">
               <div className="flex_button">
                 <div className="text_header">Entre em contato</div>
                 <div className="icon_arrow">
@@ -712,7 +713,7 @@ const Header = () => {
               <div className="cube_active"></div>
               <div>Cases</div>
             </a>
-            <a href="/#cta-section" className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
+            <a {...WHATSAPP_LINK_PROPS} className="mobile_link w-inline-block" onClick={() => setIsMenuOpen(false)}>
               <div className="cube_active"></div>
               <div>Contato</div>
             </a>

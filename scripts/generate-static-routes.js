@@ -568,3 +568,153 @@ generateRoute('estrategias/performance-web-marcas-high-ticket', {
     }
   }
 });
+
+// --- Strategy: Technical SEO and Digital Authority ---
+generateRoute('estrategias/seo-tecnico-autoridade-digital', {
+  title: 'SEO Técnico e Autoridade Digital para Empresas Premium | Off-Data',
+  description: 'Estratégia de SEO técnico, conteúdo e autoridade digital para empresas premium em Uberlândia e Triângulo Mineiro que precisam ser encontradas, compreendidas e escolhidas com mais confiança.',
+  canonical: 'https://www.offdata.digital/estrategias/seo-tecnico-autoridade-digital',
+  image: 'https://www.offdata.digital/imagens/imagem-estrategia/seo-tecnico-autoridade-digital-hero.avif',
+  imageAlt: 'Estrutura corporativa conectada representando SEO técnico e autoridade digital',
+  schema: {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'SEO Técnico e Autoridade Digital para Empresas Premium',
+    description: 'Estratégia de SEO técnico, conteúdo e autoridade digital para empresas premium em Uberlândia e Triângulo Mineiro que precisam ser encontradas, compreendidas e escolhidas com mais confiança.',
+    url: 'https://www.offdata.digital/estrategias/seo-tecnico-autoridade-digital',
+    inLanguage: 'pt-BR',
+    image: 'https://www.offdata.digital/imagens/imagem-estrategia/seo-tecnico-autoridade-digital-hero.avif',
+    author: {
+      '@type': 'Organization',
+      '@id': 'https://www.offdata.digital/#business',
+      name: 'Off-Data Engenharia Digital',
+      url: 'https://www.offdata.digital/'
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': 'https://www.offdata.digital/#business',
+      name: 'Off-Data Engenharia Digital',
+      url: 'https://www.offdata.digital/'
+    },
+    mainEntity: {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'O que é autoridade digital?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Autoridade digital é a percepção construída quando uma empresa apresenta informação útil, estrutura técnica consistente, presença regional clara e comunicação coerente com sua especialidade. Ela não depende de um único conteúdo ou métrica. É resultado de site, SEO, performance, linguagem, confiança e evolução contínua trabalhando juntos.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'SEO técnico garante primeira posição no Google?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Não. SEO técnico melhora a base de leitura, indexação, velocidade e organização do site, mas não garante posição específica. O desempenho depende de concorrência, autoridade existente, qualidade do conteúdo, intenção de busca, histórico do domínio e mudanças dos algoritmos. A leitura correta é tratar técnica como fundamento, não promessa.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Essa estratégia serve para empresas locais?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sim, especialmente quando a empresa atende mercados regionais e precisa ser encontrada com confiança. Em Uberlândia e no Triângulo Mineiro, autoridade digital pode conectar serviços, localização, diferenciais e conteúdo técnico. A estratégia precisa refletir atuação real, evitando páginas genéricas para cidades ou segmentos sem aderência.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Qual a diferença entre conteúdo comum e conteúdo estratégico?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Conteúdo comum costuma falar de temas soltos, sem conexão clara com a jornada de decisão. Conteúdo estratégico responde dúvidas reais, organiza critérios de escolha, fortalece tópicos importantes e se encaixa em uma arquitetura de páginas. Ele informa, posiciona e ajuda o visitante a entender por que a empresa é relevante.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Quando faz sentido contratar um diagnóstico de autoridade?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Faz sentido quando o site não reflete mais o valor da empresa, quando conteúdos não geram clareza, quando páginas importantes não aparecem no Google ou quando a presença digital depende de ações isoladas. O diagnóstico identifica gargalos técnicos, editoriais e comerciais para priorizar uma evolução realista.'
+          }
+        }
+      ]
+    }
+  }
+});
+
+// --- Strategy: Commercial Operations Automation ---
+generateRoute('estrategias/automacao-operacoes-comerciais', {
+  title: 'Automação e Operações Comerciais para Empresas B2B | Off-Data',
+  description: 'Estratégia de automação, organização comercial e operações digitais para empresas B2B em Uberlândia e Triângulo Mineiro que precisam captar, qualificar e acompanhar oportunidades com mais previsibilidade.',
+  canonical: 'https://www.offdata.digital/estrategias/automacao-operacoes-comerciais',
+  image: 'https://www.offdata.digital/imagens/imagem-estrategia/automacao-operacoes-comerciais-hero.avif',
+  imageAlt: 'Operações comerciais digitais conectadas por automação e processos B2B',
+  schema: {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Automação e Operações Comerciais para Empresas B2B',
+    description: 'Estratégia de automação, organização comercial e operações digitais para empresas B2B em Uberlândia e Triângulo Mineiro que precisam captar, qualificar e acompanhar oportunidades com mais previsibilidade.',
+    url: 'https://www.offdata.digital/estrategias/automacao-operacoes-comerciais',
+    inLanguage: 'pt-BR',
+    image: 'https://www.offdata.digital/imagens/imagem-estrategia/automacao-operacoes-comerciais-hero.avif',
+    author: {
+      '@type': 'Organization',
+      '@id': 'https://www.offdata.digital/#business',
+      name: 'Off-Data Engenharia Digital',
+      url: 'https://www.offdata.digital/'
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': 'https://www.offdata.digital/#business',
+      name: 'Off-Data Engenharia Digital',
+      url: 'https://www.offdata.digital/'
+    },
+    mainEntity: {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'O que são operações comerciais digitais?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Operações comerciais digitais são processos, ferramentas e rotinas que organizam como oportunidades entram, são qualificadas, atendidas e acompanhadas. Elas conectam canais como site, WhatsApp, formulários, CRM e follow-up para dar mais clareza ao time comercial. A estrutura não garante vendas, mas melhora a leitura e a continuidade da jornada.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Automação substitui o atendimento humano?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Não. Automação deve apoiar o atendimento, não substituir conversas importantes. Ela pode ajudar com registros, alertas, triagens, respostas iniciais e organização de próximos passos. Diagnóstico, negociação, relacionamento e decisão continuam dependendo de escuta, contexto e julgamento humano.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Essa estratégia serve para empresas locais?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sim. Empresas locais e regionais também lidam com múltiplos canais, demandas diferentes e ciclos comerciais que precisam de acompanhamento. Em Uberlândia e no Triângulo Mineiro, organizar a operação ajuda negócios B2B a entender melhor origem, qualidade e evolução dos contatos recebidos.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Preciso ter CRM para começar?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Não necessariamente. Um CRM pode ajudar bastante, mas o diagnóstico pode começar avaliando canais, formulários, WhatsApp, planilhas, responsáveis e rotina de follow-up. Em alguns casos, a prioridade é ajustar o processo antes de escolher ou configurar uma ferramenta mais robusta.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'Quando faz sentido contratar um diagnóstico de operações?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Faz sentido quando a empresa recebe contatos por vários canais, perde histórico de conversas, tem dificuldade para priorizar oportunidades ou não sabe quais ações geram conversas qualificadas. O diagnóstico identifica gargalos e propõe uma evolução realista para processos, integrações e acompanhamento comercial.'
+          }
+        }
+      ]
+    }
+  }
+});

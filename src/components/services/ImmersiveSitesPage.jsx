@@ -4,6 +4,7 @@ import Header from '../Header';
 import FooterSection from '../sections/FooterSection';
 import PixelTransition from '../animations/PixelTransition';
 import styles from '../../styles/ImmersiveSites.module.css';
+import { getWhatsAppLinkProps, WHATSAPP_MESSAGES } from '../../constants/contact';
 
 /* ──────────────────────────────────────────────────────────
    DATA — Operational Capabilities
@@ -145,6 +146,7 @@ const CtaLinesSvg = () => (
    PAGE COMPONENT
    ────────────────────────────────────────────────────────── */
 const ImmersiveSitesPage = () => {
+  const whatsappLinkProps = getWhatsAppLinkProps(WHATSAPP_MESSAGES.immersiveSites);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -367,7 +369,7 @@ const ImmersiveSitesPage = () => {
               </h2>
 
               <div className={styles.ctaButtonWrap}>
-                <a href="/agencia" className={styles.ctaButton}>
+                <a {...whatsappLinkProps} className={styles.ctaButton}>
                   <div>Falar com um especialista</div>
                   <div className={styles.ctaArrow}>↗</div>
                 </a>

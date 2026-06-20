@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import CtaBoxSection from '../../sections/CtaBoxSection';
+import { WHATSAPP_MESSAGES } from '../../../constants/contact';
 
 const ImmersiveSitesCtaBox = () => {
   const rootRef = useRef(null);
@@ -21,7 +22,7 @@ const ImmersiveSitesCtaBox = () => {
     }
   }, []);
 
-  return <div ref={rootRef}><CtaBoxSection /></div>;
+  return <div ref={rootRef}><CtaBoxSection whatsappMessage={WHATSAPP_MESSAGES.immersiveSites} /></div>;
 };
 
 export default ImmersiveSitesCtaBox;

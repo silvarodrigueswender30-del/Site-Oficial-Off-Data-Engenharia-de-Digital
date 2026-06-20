@@ -1,5 +1,8 @@
 import React from 'react';
 import styles from './HighTicketWebPerformancePage.module.css';
+import { getWhatsAppLinkProps, WHATSAPP_MESSAGES } from '../../../constants/contact';
+
+const whatsappLinkProps = getWhatsAppLinkProps(WHATSAPP_MESSAGES.highTicketWebPerformance);
 
 const HighTicketWebPerformanceHero = () => (
   <>
@@ -7,7 +10,7 @@ const HighTicketWebPerformanceHero = () => (
       <div className={styles.heroInner}>
         <div className={styles.heroHeading}>
           <h1>Performance Web para Marcas Premium e High-Ticket em Uberlândia</h1>
-          <a className={styles.primaryButton} href="#diagnostico">
+          <a className={styles.primaryButton} {...whatsappLinkProps}>
             <span>Diagnóstico de Performance</span><span aria-hidden="true">↗</span>
           </a>
         </div>

@@ -1,17 +1,17 @@
 import React from 'react';
-import styles from './ClinicsImmersiveSitesPage.module.css';
+import styles from './OperationsPage.module.css';
 import { getWhatsAppLinkProps, WHATSAPP_MESSAGES } from '../../../constants/contact';
 
-const whatsappLinkProps = getWhatsAppLinkProps(WHATSAPP_MESSAGES.clinicsImmersiveSites);
+const whatsappLinkProps = getWhatsAppLinkProps(WHATSAPP_MESSAGES.commercialOperations);
 
-const ClinicsImmersiveSitesHero = () => (
+const OperationsHero = () => (
   <>
     <section className={styles.hero} data-section="light">
       <div className={styles.heroInner}>
         <div className={styles.heroHeading}>
-          <h1>Sites para Clínicas Médicas de Alto Padrão em Uberlândia</h1>
+          <h1>Automação e Operações Comerciais para Empresas B2B</h1>
           <a className={styles.primaryButton} {...whatsappLinkProps}>
-            <span>Diagnóstico Digital</span><span aria-hidden="true">↗</span>
+            <span>Diagnóstico de Operações</span><span aria-hidden="true">↗</span>
           </a>
         </div>
         <svg className={styles.heroLines} viewBox="0 0 1920 360" preserveAspectRatio="none" aria-hidden="true">
@@ -24,9 +24,9 @@ const ClinicsImmersiveSitesHero = () => (
       </div>
     </section>
     <div className={styles.panorama}>
-          <img src="/imagens/imagem-estrategia/sites-imersivos-clinicas-medicas-hero.avif" alt="Clínica médica de alto padrão representando uma experiência digital imersiva" loading="eager" decoding="async" fetchPriority="high" />
+      <img src="/imagens/imagem-estrategia/automacao-operacoes-comerciais-hero.avif" alt="Operações comerciais digitais conectadas por automação e organização de processos B2B" loading="eager" decoding="async" fetchPriority="high" />
     </div>
   </>
 );
 
-export default ClinicsImmersiveSitesHero;
+export default OperationsHero;

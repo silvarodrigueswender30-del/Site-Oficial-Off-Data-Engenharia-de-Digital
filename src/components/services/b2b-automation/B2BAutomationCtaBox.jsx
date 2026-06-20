@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import CtaBoxSection from '../../sections/CtaBoxSection';
+import { WHATSAPP_MESSAGES } from '../../../constants/contact';
 
 const B2BAutomationCtaBox = () => {
   const rootRef = useRef(null);
@@ -21,7 +22,7 @@ const B2BAutomationCtaBox = () => {
     }
   }, []);
 
-  return <div ref={rootRef}><CtaBoxSection /></div>;
+  return <div ref={rootRef}><CtaBoxSection whatsappMessage={WHATSAPP_MESSAGES.b2bAutomation} /></div>;
 };
 
 export default B2BAutomationCtaBox;

@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../assets/images/Off - Data-branca.svg';
+import { WHATSAPP_URL } from '../../constants/contact';
 
 const footerMenus = [
   {
@@ -9,7 +10,7 @@ const footerMenus = [
       ['Serviços', '/#products'],
       ['Nichos', '/#built-for'],
       ['Sobre', '/agencia'],
-      ['Contato', '/#cta-section'],
+      ['Contato', WHATSAPP_URL],
     ],
   },
   {
@@ -297,7 +298,28 @@ const FooterSection = () => {
       <div className="wrapper_footer">
         <div className="flex_footer">
           <div className="subscribe_newsletter">
-            <form className="form_subscribe" onSubmit={(event) => event.preventDefault()}>
+            <form
+              className="form_subscribe"
+              onSubmit={(event) => {
+                event.preventDefault();
+                
+                const form = event.target;
+                const emailInput = form.querySelector('input[type="email"]');
+                const isEmailValid = emailInput && emailInput.value.trim() !== '' && emailInput.checkValidity();
+
+                if (isEmailValid) {
+                  import('../../utils/analytics').then(({ trackEvent }) => {
+                    trackEvent('newsletter_submit', {
+                      source_page: window.location.pathname,
+                      form_name: 'newsletter_footer'
+                    });
+                  });
+                }
+                
+                window.open(WHATSAPP_URL, '_blank', 'noopener,noreferrer');
+                form.reset(); // Opcional, reseta o campo após o envio
+              }}
+            >
               <div className="title_subscribe">
                 Fale com
                 <br />
@@ -321,7 +343,18 @@ const FooterSection = () => {
                       href={href}
                       className="footer_link w-inline-block"
                       target={href.startsWith('http') ? '_blank' : undefined}
-                      rel={href.startsWith('http') ? 'noreferrer' : undefined}
+                      rel={href === WHATSAPP_URL ? 'noopener noreferrer' : href.startsWith('http') ? 'noreferrer' : undefined}
+                      onClick={(e) => {
+                        if (href === WHATSAPP_URL || href.includes('wa.me')) {
+                          import('../../utils/analytics').then(({ trackEvent }) => {
+                            trackEvent('click_whatsapp', {
+                              source_page: window.location.pathname,
+                              link_url: href,
+                              cta_text: label
+                            });
+                          });
+                        }
+                      }}
                     >
                       <div>{label}</div>
                     </a>

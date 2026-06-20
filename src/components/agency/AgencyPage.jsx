@@ -6,6 +6,7 @@ import AgencyHero from './AgencyHero';
 import AgencyWorkSection from './AgencyWorkSection';
 import AgencyMissionSection from './AgencyMissionSection';
 import AgencyPixelTransition from './AgencyPixelTransition';
+import { WHATSAPP_MESSAGES } from '../../constants/contact';
 
 const AgencyPage = () => {
   useEffect(() => {
@@ -95,7 +96,7 @@ const AgencyPage = () => {
           <AgencyMissionSection />
           <AgencyPixelTransition />
         </section>
-        <CtaBoxSection />
+        <CtaBoxSection whatsappMessage={WHATSAPP_MESSAGES.agency} />
       </main>
       <FooterSection />
     </div>

@@ -143,6 +143,22 @@
       "destination": "/estrategias/performance-web-marcas-high-ticket/index.html"
     },
     {
+      "source": "/estrategias/seo-tecnico-autoridade-digital",
+      "destination": "/estrategias/seo-tecnico-autoridade-digital/index.html"
+    },
+    {
+      "source": "/estrategias/seo-tecnico-autoridade-digital/",
+      "destination": "/estrategias/seo-tecnico-autoridade-digital/index.html"
+    },
+    {
+      "source": "/estrategias/automacao-operacoes-comerciais",
+      "destination": "/estrategias/automacao-operacoes-comerciais/index.html"
+    },
+    {
+      "source": "/estrategias/automacao-operacoes-comerciais/",
+      "destination": "/estrategias/automacao-operacoes-comerciais/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

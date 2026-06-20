@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import CtaBoxSection from '../../sections/CtaBoxSection';
+import { WHATSAPP_MESSAGES } from '../../../constants/contact';
 
 const TechnicalContentCtaBox = () => {
   const rootRef = useRef(null);
@@ -21,7 +22,7 @@ const TechnicalContentCtaBox = () => {
     }
   }, []);
 
-  return <div ref={rootRef}><CtaBoxSection /></div>;
+  return <div ref={rootRef}><CtaBoxSection whatsappMessage={WHATSAPP_MESSAGES.technicalContent} /></div>;
 };
 
 export default TechnicalContentCtaBox;

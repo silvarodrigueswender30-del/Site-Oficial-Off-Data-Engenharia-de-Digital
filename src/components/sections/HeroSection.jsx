@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import arrowDiagonal from '../../assets/images/arrow-diagonal.svg';
+import { getWhatsAppLinkProps, WHATSAPP_MESSAGES } from '../../constants/contact';
 
 const HeroSection = () => {
   const canvasRef = useRef(null);
+  const whatsappLinkProps = getWhatsAppLinkProps(WHATSAPP_MESSAGES.home);
 
   useEffect(() => {
     // WebGL circle used in the Off-Data hero animation.
@@ -1066,7 +1068,7 @@ const HeroSection = () => {
               </h1>
             </div>
             <div className="button_wrap">
-              <a href="#cta-section" className="button w-inline-block">
+              <a {...whatsappLinkProps} className="button w-inline-block">
                 <div className="flex_button_general">
                   <div>Entre em contato</div>
                   <div className="arrow_button">
