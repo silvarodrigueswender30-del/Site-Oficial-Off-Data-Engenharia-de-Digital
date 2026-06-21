@@ -860,7 +860,7 @@ const NewsroomSection = () => {
                     aria-label="Previous slide"
                     onClick={() => scrollMobileNews(-1)}
                   >
-                    <img src={arrowDiagonal} alt="" aria-hidden="true" />
+                    <img src={arrowDiagonal} alt="" aria-hidden="true" width="14" height="14" decoding="async" loading="lazy" />
                   </button>
                   <button
                     type="button"
@@ -868,7 +868,7 @@ const NewsroomSection = () => {
                     aria-label="Next slide"
                     onClick={() => scrollMobileNews(1)}
                   >
-                    <img src={arrowDiagonal} alt="" aria-hidden="true" />
+                    <img src={arrowDiagonal} alt="" aria-hidden="true" width="14" height="14" decoding="async" loading="lazy" />
                   </button>
                 </div>
               </div>

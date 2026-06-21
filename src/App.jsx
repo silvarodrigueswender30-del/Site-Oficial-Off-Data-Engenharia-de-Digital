@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import Header from './components/Header';
 import HeroSection from './components/sections/HeroSection';
 import BuiltForSection from './components/sections/BuiltForSection';
@@ -7,23 +7,24 @@ import CuttingEdgeSection from './components/sections/CuttingEdgeSection';
 import NewsroomSection from './components/sections/NewsroomSection';
 import CtaBoxSection from './components/sections/CtaBoxSection';
 import FooterSection from './components/sections/FooterSection';
-import LegalPage from './components/legal/LegalPage';
-import AgencyPage from './components/agency/AgencyPage';
-import ImmersiveSitesPage from './components/services/immersive-sites/ImmersiveSitesPage';
-import SeoLocalPage from './components/services/seo-local/SeoLocalPage';
-import PaidTrafficPage from './components/services/paid-traffic/PaidTrafficPage';
-import LandingPagesPage from './components/services/landing-pages/LandingPagesPage';
-import PerformanceWebPage from './components/services/performance-web/PerformanceWebPage';
-import B2BAutomationPage from './components/services/b2b-automation/B2BAutomationPage';
-import TechnicalContentPage from './components/services/technical-content/TechnicalContentPage';
-import RealEstateSeoPage from './components/strategies/real-estate-seo/RealEstateSeoPage';
-import ClinicsImmersiveSitesPage from './components/strategies/clinics-immersive-sites/ClinicsImmersiveSitesPage';
-import B2BHighIntentTrafficPage from './components/strategies/b2b-high-intent-traffic/B2BHighIntentTrafficPage';
-import HighTicketWebPerformancePage from './components/strategies/high-ticket-web-performance/HighTicketWebPerformancePage';
-import AuthorityPage from './components/strategies/seo-tecnico-autoridade-digital/AuthorityPage';
-import OperationsPage from './components/strategies/automacao-operacoes-comerciais/OperationsPage';
 import { WHATSAPP_MESSAGES } from './constants/contact';
 import './styles/globals.css';
+
+const LegalPage = lazy(() => import('./components/legal/LegalPage'));
+const AgencyPage = lazy(() => import('./components/agency/AgencyPage'));
+const ImmersiveSitesPage = lazy(() => import('./components/services/immersive-sites/ImmersiveSitesPage'));
+const SeoLocalPage = lazy(() => import('./components/services/seo-local/SeoLocalPage'));
+const PaidTrafficPage = lazy(() => import('./components/services/paid-traffic/PaidTrafficPage'));
+const LandingPagesPage = lazy(() => import('./components/services/landing-pages/LandingPagesPage'));
+const PerformanceWebPage = lazy(() => import('./components/services/performance-web/PerformanceWebPage'));
+const B2BAutomationPage = lazy(() => import('./components/services/b2b-automation/B2BAutomationPage'));
+const TechnicalContentPage = lazy(() => import('./components/services/technical-content/TechnicalContentPage'));
+const RealEstateSeoPage = lazy(() => import('./components/strategies/real-estate-seo/RealEstateSeoPage'));
+const ClinicsImmersiveSitesPage = lazy(() => import('./components/strategies/clinics-immersive-sites/ClinicsImmersiveSitesPage'));
+const B2BHighIntentTrafficPage = lazy(() => import('./components/strategies/b2b-high-intent-traffic/B2BHighIntentTrafficPage'));
+const HighTicketWebPerformancePage = lazy(() => import('./components/strategies/high-ticket-web-performance/HighTicketWebPerformancePage'));
+const AuthorityPage = lazy(() => import('./components/strategies/seo-tecnico-autoridade-digital/AuthorityPage'));
+const OperationsPage = lazy(() => import('./components/strategies/automacao-operacoes-comerciais/OperationsPage'));
 
 function NotFound() {
   useEffect(() => {
@@ -53,63 +54,123 @@ function App() {
   const legalPaths = ['/privacy-policy', '/terms-and-conditions', '/cookie-policy'];
 
   if (legalPaths.includes(path)) {
-    return <LegalPage path={path} />;
+    return (
+      <Suspense fallback={null}>
+        <LegalPage path={path} />
+      </Suspense>
+    );
   }
 
   if (path === '/agencia' || previewPage === 'agencia') {
-    return <AgencyPage />;
+    return (
+      <Suspense fallback={null}>
+        <AgencyPage />
+      </Suspense>
+    );
   }
 
   if (path === '/criacao-de-sites-uberlandia' || previewPage === 'criacao-de-sites-uberlandia') {
-    return <ImmersiveSitesPage />;
+    return (
+      <Suspense fallback={null}>
+        <ImmersiveSitesPage />
+      </Suspense>
+    );
   }
 
   if (path === '/seo-local-uberlandia' || previewPage === 'seo-local-uberlandia') {
-    return <SeoLocalPage />;
+    return (
+      <Suspense fallback={null}>
+        <SeoLocalPage />
+      </Suspense>
+    );
   }
 
   if (path === '/trafego-pago-uberlandia' || previewPage === 'trafego-pago-uberlandia') {
-    return <PaidTrafficPage />;
+    return (
+      <Suspense fallback={null}>
+        <PaidTrafficPage />
+      </Suspense>
+    );
   }
 
   if (path === '/landing-pages-high-ticket' || previewPage === 'landing-pages-high-ticket') {
-    return <LandingPagesPage />;
+    return (
+      <Suspense fallback={null}>
+        <LandingPagesPage />
+      </Suspense>
+    );
   }
 
   if (path === '/performance-web' || previewPage === 'performance-web') {
-    return <PerformanceWebPage />;
+    return (
+      <Suspense fallback={null}>
+        <PerformanceWebPage />
+      </Suspense>
+    );
   }
 
   if (path === '/automacao-comercial-b2b' || previewPage === 'automacao-comercial-b2b') {
-    return <B2BAutomationPage />;
+    return (
+      <Suspense fallback={null}>
+        <B2BAutomationPage />
+      </Suspense>
+    );
   }
 
   if (path === '/conteudo-tecnico' || previewPage === 'conteudo-tecnico') {
-    return <TechnicalContentPage />;
+    return (
+      <Suspense fallback={null}>
+        <TechnicalContentPage />
+      </Suspense>
+    );
   }
 
   if (path === '/estrategias/seo-local-imobiliarias-luxo' || previewPage === 'estrategias/seo-local-imobiliarias-luxo') {
-    return <RealEstateSeoPage />;
+    return (
+      <Suspense fallback={null}>
+        <RealEstateSeoPage />
+      </Suspense>
+    );
   }
 
   if (path === '/estrategias/sites-imersivos-clinicas-medicas' || previewPage === 'estrategias/sites-imersivos-clinicas-medicas') {
-    return <ClinicsImmersiveSitesPage />;
+    return (
+      <Suspense fallback={null}>
+        <ClinicsImmersiveSitesPage />
+      </Suspense>
+    );
   }
 
   if (path === '/estrategias/trafego-alta-intencao-b2b' || previewPage === 'estrategias/trafego-alta-intencao-b2b') {
-    return <B2BHighIntentTrafficPage />;
+    return (
+      <Suspense fallback={null}>
+        <B2BHighIntentTrafficPage />
+      </Suspense>
+    );
   }
 
   if (path === '/estrategias/performance-web-marcas-high-ticket' || previewPage === 'estrategias/performance-web-marcas-high-ticket') {
-    return <HighTicketWebPerformancePage />;
+    return (
+      <Suspense fallback={null}>
+        <HighTicketWebPerformancePage />
+      </Suspense>
+    );
   }
 
   if (path === '/estrategias/seo-tecnico-autoridade-digital' || previewPage === 'estrategias/seo-tecnico-autoridade-digital') {
-    return <AuthorityPage />;
+    return (
+      <Suspense fallback={null}>
+        <AuthorityPage />
+      </Suspense>
+    );
   }
 
   if (path === '/estrategias/automacao-operacoes-comerciais' || previewPage === 'estrategias/automacao-operacoes-comerciais') {
-    return <OperationsPage />;
+    return (
+      <Suspense fallback={null}>
+        <OperationsPage />
+      </Suspense>
+    );
   }
 
   if (path === '/') {

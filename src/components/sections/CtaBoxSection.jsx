@@ -544,7 +544,7 @@ const CtaBoxSection = ({ whatsappMessage = WHATSAPP_MESSAGES.generic } = {}) => 
                 <div className="flex_button_general">
                   <div>Entre em contato</div>
                   <div className="arrow_button white">
-                    <img src={arrowBlue} alt="" aria-hidden="true" />
+                    <img src={arrowBlue} alt="" aria-hidden="true" width="16" height="16" decoding="async" loading="lazy" />
                   </div>
                 </div>
               </a>

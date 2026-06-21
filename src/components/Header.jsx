@@ -293,6 +293,12 @@ const Header = () => {
         /* ── Hamburger (mobile) ── */
         .hamburger_link {
           display: none;
+          appearance: none;
+          border: 0;
+          background: transparent;
+          padding: 0;
+          font: inherit;
+          cursor: pointer;
         }
 
         .hamburger {
@@ -672,8 +678,12 @@ const Header = () => {
           </div>
 
           {/* Hamburger (mobile/tablet) */}
-          <div
+          <button
+            type="button"
             className={`hamburger_link ${isMenuOpen ? 'is-open' : ''}`}
+            aria-label={isMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <div className="close_txt">Fechar</div>
@@ -685,12 +695,12 @@ const Header = () => {
               <div className="cube_hamb"></div>
               <div className="cube_hamb"></div>
             </div>
-          </div>
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`mobile_menu ${isMenuOpen ? 'is-open' : ''}`}>
+      <div id="mobile-navigation" className={`mobile_menu ${isMenuOpen ? 'is-open' : ''}`}>
         <div className="wrapper_mobile_menu">
           <div className="menu_links">
             <a href="/#home" className={`mobile_link w-inline-block ${isAgencyPage ? '' : 'w--current'}`} onClick={() => setIsMenuOpen(false)}>

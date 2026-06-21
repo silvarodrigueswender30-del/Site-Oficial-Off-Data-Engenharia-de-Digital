@@ -515,7 +515,7 @@ const LegalPage = ({ path }) => {
 
       <nav className="legal-nav" aria-label="Navegação jurídica">
         <a className="legal-nav__logo" href="/" aria-label="Voltar para a página inicial da Off-Data">
-          <img src={whiteLogo} alt="Off-Data" />
+          <img src={whiteLogo} alt="Off-Data" width="1651" height="238" decoding="async" />
         </a>
         <div className="legal-nav__links">
           <a href="/privacy-policy" aria-current={path === '/privacy-policy' ? 'page' : undefined}>Privacidade</a>
@@ -558,7 +558,7 @@ const LegalPage = ({ path }) => {
 
       <footer className="legal-footer">
         <a className="legal-footer__logo" href="/" aria-label="Voltar para a página inicial da Off-Data">
-          <img src={whiteLogo} alt="Off-Data" />
+          <img src={whiteLogo} alt="Off-Data" width="1651" height="238" decoding="async" loading="lazy" />
         </a>
         <div className="legal-footer__links">
           <a 

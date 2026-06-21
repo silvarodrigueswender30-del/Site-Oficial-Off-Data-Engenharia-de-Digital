@@ -368,7 +368,7 @@ const FooterSection = () => {
         <div className="last_line">
           <div className="flex_last">
             <div className="logo_footer">
-              <img src={logo} alt="Off-Data Logotype" />
+              <img src={logo} alt="Off-Data Logotype" width="1651" height="238" decoding="async" loading="lazy" />
             </div>
             <div className="mobile_line">
               <div className="caption_box">©{year} Off-Data</div>
