@@ -725,7 +725,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <main id="home" className="hero" data-w-id="73460546-1c27-b984-0a91-f8223b58b0eb">
+    <section id="home" className="hero" data-w-id="73460546-1c27-b984-0a91-f8223b58b0eb">
       <style>{`
         .hero {
           width: 100vw;
@@ -1101,7 +1101,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

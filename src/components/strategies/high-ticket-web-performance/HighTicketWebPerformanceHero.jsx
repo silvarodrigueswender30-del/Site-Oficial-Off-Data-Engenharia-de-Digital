@@ -24,7 +24,7 @@ const HighTicketWebPerformanceHero = () => (
       </div>
     </section>
     <div className={styles.panorama}>
-          <img src="/imagens/imagem-estrategia/performance-web-marcas-high-ticket-hero.avif" alt="Marcas regionais conectadas por uma experiência digital de alta performance" loading="eager" decoding="async" fetchPriority="high" />
+          <img src="/imagens/imagem-estrategia/performance-web-marcas-high-ticket-hero.avif" width="2752" height="1536" alt="Marcas regionais conectadas por uma experiência digital de alta performance" loading="eager" decoding="async" fetchPriority="high" />
     </div>
   </>
 );

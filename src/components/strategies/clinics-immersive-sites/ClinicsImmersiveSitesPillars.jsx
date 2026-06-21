@@ -33,7 +33,7 @@ const ClinicsImmersiveSitesPillars = () => {
       <div className={styles.sectionHeading}><h2>O que sustenta uma experiência médica premium?</h2></div>
       <div className={styles.pillarsLayout}>
         <div className={styles.sideImage}>
-          <img ref={imageRef} src="/imagens/imagem-estrategia/sites-imersivos-clinicas-medicas-img2.avif" alt="Ambiente clínico sofisticado representando confiança e experiência digital" loading="lazy" decoding="async" />
+          <img ref={imageRef} src="/imagens/imagem-estrategia/sites-imersivos-clinicas-medicas-img2.avif" width="2048" height="2048" alt="Ambiente clínico sofisticado representando confiança e experiência digital" loading="lazy" decoding="async" />
         </div>
         <ol className={styles.pillars}>
           {pillars.map(([title, text], index) => (

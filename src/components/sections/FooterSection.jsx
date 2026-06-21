@@ -326,8 +326,8 @@ const FooterSection = () => {
                 a Off-Data em Uberlândia
               </div>
               <div className="subscribe_form">
-                <input className="input_field w-input" placeholder="E-mail profissional" type="email" required />
-                <button type="submit" className="subscribe_button w-button">Enviar</button>
+                <input aria-label="Seu e-mail profissional para receber novidades da Off-Data" className="input_field w-input" placeholder="E-mail profissional" name="email" type="email" required />
+                <button type="submit" className="subscribe_button w-button" aria-label="Enviar formulário para falar com a Off-Data">Enviar</button>
               </div>
             </form>
           </div>

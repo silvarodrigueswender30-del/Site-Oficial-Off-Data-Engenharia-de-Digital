@@ -24,7 +24,7 @@ const ClinicsImmersiveSitesHero = () => (
       </div>
     </section>
     <div className={styles.panorama}>
-          <img src="/imagens/imagem-estrategia/sites-imersivos-clinicas-medicas-hero.avif" alt="Clínica médica de alto padrão representando uma experiência digital imersiva" loading="eager" decoding="async" fetchPriority="high" />
+          <img src="/imagens/imagem-estrategia/sites-imersivos-clinicas-medicas-hero.avif" width="2752" height="1536" alt="Clínica médica de alto padrão representando uma experiência digital imersiva" loading="eager" decoding="async" fetchPriority="high" />
     </div>
   </>
 );

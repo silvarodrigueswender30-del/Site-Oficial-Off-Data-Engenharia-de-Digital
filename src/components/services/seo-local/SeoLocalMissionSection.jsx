@@ -35,7 +35,7 @@ const SeoLocalMissionSection = () => {
         @media(max-width:479px){.agency-mission-section{padding-top:3.8rem}.agency-mission-image{height:106em}.agency-mission-copy{width:100%;margin-top:1.5rem}.agency-mission-copy__tag{font-size:3em}.agency-mission-copy__statement{margin-top:2.2rem;font-size:5.3em}.agency-mission-copy__columns{width:81%;margin-top:3.8rem}.agency-mission-copy__columns p{font-size:3.7em}}
       `}</style>
       <div className="agency-mission-image">
-        <img ref={imageRef} src="/imagens/imagem-servico/seo-local.avif" alt="Imagem representando SEO local em Uberlândia" loading="lazy" decoding="async" />
+        <img ref={imageRef} src="/imagens/imagem-servico/seo-local.avif" width="1792" height="2400" alt="Imagem representando SEO local em Uberlândia" loading="lazy" decoding="async" />
       </div>
       <div className="agency-mission-copy">
         <div className="agency-mission-copy__tag">Direção</div>

@@ -44,7 +44,7 @@ const AgencyMissionSection = () => {
         }
       `}</style>
       <div className="agency-mission-image">
-        <img ref={imageRef} src="/imagens/performance-web-marcas-regionais.avif" alt="Centro empresarial representando performance web para marcas regionais" />
+        <img ref={imageRef} src="/imagens/performance-web-marcas-regionais.avif" width="1600" height="894" loading="lazy" decoding="async" alt="Centro empresarial representando performance web para marcas regionais" />
       </div>
       <div className="agency-mission-copy">
         <div className="agency-mission-copy__tag">Missão</div>

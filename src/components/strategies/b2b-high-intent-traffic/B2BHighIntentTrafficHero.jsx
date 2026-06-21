@@ -24,7 +24,7 @@ const B2BHighIntentTrafficHero = () => (
       </div>
     </section>
     <div className={styles.panorama}>
-          <img src="/imagens/imagem-estrategia/trafego-alta-intencao-b2b-hero.avif" alt="Operação B2B regional conectada por dados e tráfego de alta intenção" loading="eager" decoding="async" fetchPriority="high" />
+          <img src="/imagens/imagem-estrategia/trafego-alta-intencao-b2b-hero.avif" width="2752" height="1536" alt="Operação B2B regional conectada por dados e tráfego de alta intenção" loading="eager" decoding="async" fetchPriority="high" />
     </div>
   </>
 );

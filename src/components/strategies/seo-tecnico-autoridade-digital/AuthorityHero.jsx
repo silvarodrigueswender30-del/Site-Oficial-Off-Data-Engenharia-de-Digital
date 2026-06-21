@@ -24,7 +24,7 @@ const AuthorityHero = () => (
       </div>
     </section>
     <div className={styles.panorama}>
-      <img src="/imagens/imagem-estrategia/seo-tecnico-autoridade-digital-hero.avif" alt="Estrutura corporativa conectada representando SEO técnico e autoridade digital" loading="eager" decoding="async" fetchPriority="high" />
+      <img src="/imagens/imagem-estrategia/seo-tecnico-autoridade-digital-hero.avif" width="2752" height="1536" alt="Estrutura corporativa conectada representando SEO técnico e autoridade digital" loading="eager" decoding="async" fetchPriority="high" />
     </div>
   </>
 );

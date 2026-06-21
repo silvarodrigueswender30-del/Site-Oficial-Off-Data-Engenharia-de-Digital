@@ -24,7 +24,7 @@ const RealEstateSeoHero = () => (
       </div>
     </section>
     <div className={styles.panorama}>
-          <img src="/imagens/imagem-estrategia/seo-local-imobiliarias-luxo-hero.avif" alt="Arquitetura premium representando SEO local para imobiliárias de luxo" loading="eager" decoding="async" fetchPriority="high" />
+          <img src="/imagens/imagem-estrategia/seo-local-imobiliarias-luxo-hero.avif" width="2752" height="1536" alt="Arquitetura premium representando SEO local para imobiliárias de luxo" loading="eager" decoding="async" fetchPriority="high" />
     </div>
   </>
 );

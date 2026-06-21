@@ -37,11 +37,11 @@ function NotFound() {
   return (
     <div className="app" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--blue, #044ab3)', color: 'white', textAlign: 'center' }}>
       <Header />
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+      <main style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
         <h1 style={{ fontSize: '4rem', marginBottom: '1rem' }}>404</h1>
         <p style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>Página não encontrada</p>
         <a href="/" style={{ padding: '0.75rem 1.5rem', backgroundColor: 'white', color: 'var(--blue, #044ab3)', textDecoration: 'none', borderRadius: '4px', fontWeight: 'bold' }}>Voltar ao Início</a>
-      </div>
+      </main>
       <FooterSection />
     </div>
   );
@@ -116,12 +116,14 @@ function App() {
     return (
       <div className="app">
         <Header />
-        <HeroSection />
-        <BuiltForSection />
-        <ProductsSection />
-        <CuttingEdgeSection />
-        <NewsroomSection />
-        <CtaBoxSection whatsappMessage={WHATSAPP_MESSAGES.home} />
+        <main>
+          <HeroSection />
+          <BuiltForSection />
+          <ProductsSection />
+          <CuttingEdgeSection />
+          <NewsroomSection />
+          <CtaBoxSection whatsappMessage={WHATSAPP_MESSAGES.home} />
+        </main>
         <FooterSection />
       </div>
     );

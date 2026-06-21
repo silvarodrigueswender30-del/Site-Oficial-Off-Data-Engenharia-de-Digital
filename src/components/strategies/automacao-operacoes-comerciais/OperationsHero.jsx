@@ -24,7 +24,7 @@ const OperationsHero = () => (
       </div>
     </section>
     <div className={styles.panorama}>
-      <img src="/imagens/imagem-estrategia/automacao-operacoes-comerciais-hero.avif" alt="Operações comerciais digitais conectadas por automação e organização de processos B2B" loading="eager" decoding="async" fetchPriority="high" />
+      <img src="/imagens/imagem-estrategia/automacao-operacoes-comerciais-hero.avif" width="2752" height="1536" alt="Operações comerciais digitais conectadas por automação e organização de processos B2B" loading="eager" decoding="async" fetchPriority="high" />
     </div>
   </>
 );
