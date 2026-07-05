@@ -164,11 +164,11 @@
     },
     {
       "source": "/blog",
-      "destination": "https://offdata-blog.vercel.app/blog"
+      "destination": "https://offdata-blog.vercel.app/"
     },
     {
       "source": "/blog/:path*",
-      "destination": "https://offdata-blog.vercel.app/blog/:path*"
+      "destination": "https://offdata-blog.vercel.app/:path*"
     },
     {
       "source": "/(.*)",
