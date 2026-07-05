@@ -34,3 +34,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.offdata.digital/sitemap.xml
+Sitemap: https://www.offdata.digital/blog/sitemap-index.xml

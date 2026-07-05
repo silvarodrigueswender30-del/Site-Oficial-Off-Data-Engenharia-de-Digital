@@ -163,6 +163,14 @@
       "destination": "/estrategias/automacao-operacoes-comerciais/index.html"
     },
     {
+      "source": "/blog",
+      "destination": "https://offdata-blog.vercel.app/blog"
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "https://offdata-blog.vercel.app/blog/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

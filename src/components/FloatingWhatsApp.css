@@ -1,0 +1,239 @@
+/* ============================================
+   FloatingWhatsApp — Off-Data Digital
+   Premium responsive floating button + balloon
+   ============================================ */
+
+/* --- Container / Wrapper --- */
+.floating-whatsapp-container {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 9990;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+  animation: fwFadeIn 0.34s ease-out forwards;
+}
+
+.floating-whatsapp-container > * {
+  pointer-events: auto;
+}
+
+@keyframes fwFadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* --- Balloon --- */
+.floating-whatsapp-balloon {
+  width: 270px;
+  max-width: calc(100vw - 48px);
+  background: var(--blue, #044ab3);
+  color: #ffffff;
+  padding: 14px 38px 14px 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(4, 74, 179, 0.22);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform-origin: bottom right;
+  animation: fwBalloonPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.12s both;
+}
+
+@keyframes fwBalloonPop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Close button */
+.floating-whatsapp-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.floating-whatsapp-close:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.floating-whatsapp-close:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 1px;
+}
+
+/* Balloon text */
+.floating-whatsapp-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  margin-bottom: 3px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+.floating-whatsapp-subtitle {
+  font-size: 12.5px;
+  font-weight: 500;
+  opacity: 0.92;
+  line-height: 1.35;
+}
+
+/* --- Button (anchor) --- */
+.floating-whatsapp-button {
+  display: block;
+  width: 68px;
+  height: 68px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+  transition: transform 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.28s ease;
+  animation: fwBtnScale 0.32s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.06s both;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes fwBtnScale {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.floating-whatsapp-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.22);
+}
+
+.floating-whatsapp-button:focus-visible {
+  outline: 2px solid var(--blue, #044ab3);
+  outline-offset: 3px;
+}
+
+/* Button image */
+.floating-whatsapp-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+/* --- Accessibility: reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .floating-whatsapp-container,
+  .floating-whatsapp-balloon,
+  .floating-whatsapp-button {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+  .floating-whatsapp-button:hover {
+    transform: none;
+  }
+}
+
+/* --- Tablet (768–1023px) --- */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .floating-whatsapp-button {
+    width: 64px;
+    height: 64px;
+  }
+
+  .floating-whatsapp-img {
+    border-radius: 18px;
+  }
+}
+
+/* --- Mobile (< 768px) --- */
+@media screen and (max-width: 767px) {
+  .floating-whatsapp-container {
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    max-width: calc(100vw - 28px);
+    gap: 10px;
+  }
+
+  .floating-whatsapp-balloon {
+    width: min(250px, calc(100vw - 88px));
+    max-width: none;
+    padding: 12px 34px 12px 14px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(4, 74, 179, 0.2);
+  }
+
+  .floating-whatsapp-title {
+    font-size: clamp(12px, 3.35vw, 13.5px);
+    line-height: 1.22;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .floating-whatsapp-subtitle {
+    font-size: clamp(11px, 3vw, 12px);
+    line-height: 1.25;
+  }
+
+  .floating-whatsapp-close {
+    top: 4px;
+    right: 4px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .floating-whatsapp-button {
+    width: clamp(54px, 14vw, 60px);
+    height: clamp(54px, 14vw, 60px);
+    border-radius: 16px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.16);
+  }
+
+  .floating-whatsapp-button:active {
+    transform: scale(0.98);
+  }
+
+  .floating-whatsapp-button:hover {
+    transform: none;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.16);
+  }
+
+  .floating-whatsapp-img {
+    border-radius: 16px;
+  }
+}

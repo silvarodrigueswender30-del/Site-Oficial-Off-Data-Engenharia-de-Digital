@@ -9,6 +9,7 @@ import CtaBoxSection from './components/sections/CtaBoxSection';
 import FooterSection from './components/sections/FooterSection';
 import { WHATSAPP_MESSAGES } from './constants/contact';
 import './styles/globals.css';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 const LegalPage = lazy(() => import('./components/legal/LegalPage'));
 const AgencyPage = lazy(() => import('./components/agency/AgencyPage'));
@@ -48,7 +49,7 @@ function NotFound() {
   );
 }
 
-function App() {
+function AppContent() {
   const path = window.location.pathname.replace(/\/+$/, '') || '/';
   const previewPage = new URLSearchParams(window.location.search).get('page');
   const legalPaths = ['/privacy-policy', '/terms-and-conditions', '/cookie-policy'];
@@ -191,6 +192,15 @@ function App() {
   }
 
   return <NotFound />;
+}
+
+function App() {
+  return (
+    <>
+      <AppContent />
+      <FloatingWhatsApp />
+    </>
+  );
 }
 
 export default App;

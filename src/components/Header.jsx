@@ -654,7 +654,7 @@ const Header = () => {
             <a data-line-reveal="" href="/#strategies-title" className="link_header w-inline-block">
               <div>Estratégias</div>
             </a>
-            <a data-line-reveal="" href="/#strategies-title" className="link_header w-inline-block">
+            <a data-line-reveal="" href="/blog" className="link_header w-inline-block">
               <div>Blog</div>
             </a>
           </div>
