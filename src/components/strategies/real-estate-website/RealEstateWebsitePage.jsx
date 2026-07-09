@@ -4,6 +4,7 @@ import FooterSection from '../../sections/FooterSection';
 import RealEstateWebsiteHero from './RealEstateWebsiteHero';
 import RealEstateWebsiteIntro from './RealEstateWebsiteIntro';
 import RealEstateWebsitePillars from './RealEstateWebsitePillars';
+import RealEstateWebsitePortfolio from './RealEstateWebsitePortfolio';
 import RealEstateWebsiteQuestionSections from './RealEstateWebsiteQuestionSections';
 import RealEstateWebsiteFaq, { faqItems } from './RealEstateWebsiteFaq';
 import styles from './RealEstateWebsitePage.module.css';
@@ -108,6 +109,7 @@ const RealEstateWebsitePage = () => {
         <RealEstateWebsiteHero />
         <RealEstateWebsiteIntro />
         <RealEstateWebsitePillars />
+        <RealEstateWebsitePortfolio />
         <RealEstateWebsiteQuestionSections />
         <RealEstateWebsiteFaq />
       </main>
