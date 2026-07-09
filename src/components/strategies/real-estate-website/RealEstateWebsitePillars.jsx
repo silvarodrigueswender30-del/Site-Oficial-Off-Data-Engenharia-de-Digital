@@ -30,7 +30,7 @@ const RealEstateWebsitePillars = () => {
 
   return (
     <section className={styles.editorial}>
-      <div className={styles.sectionHeading}><h2>{{PILLARS_TITLE}}</h2></div>
+      <div className={styles.sectionHeading}><h2>{"{{PILLARS_TITLE}}"}</h2></div>
       <div className={styles.pillarsLayout}>
         <div className={styles.sideImage}>
           <img ref={imageRef} src="/imagens/imagem-estrategia/criacao-de-site-imobiliaria-img2.avif" width="2048" height="2048" alt="{{PILLARS_IMAGE_ALT}}" loading="lazy" decoding="async" />

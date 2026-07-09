@@ -29,7 +29,7 @@ const RealEstateWebsiteFaq = () => (
     <div className={styles.faqInner}>
       <div className={styles.faqHeading}>
         <span>FAQ</span>
-        <h2>{{FAQ_TITLE}}</h2>
+        <h2>{"{{FAQ_TITLE}}"}</h2>
       </div>
       <div className={styles.faqList}>
         {faqItems.map((item, index) => (

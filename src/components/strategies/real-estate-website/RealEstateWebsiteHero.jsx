@@ -9,9 +9,9 @@ const RealEstateWebsiteHero = () => (
     <section className={styles.hero} data-section="light">
       <div className={styles.heroInner}>
         <div className={styles.heroHeading}>
-          <h1>{{HERO_H1}}</h1>
+          <h1>{"{{HERO_H1}}"}</h1>
           <a className={styles.primaryButton} {...whatsappLinkProps}>
-            <span>{{HERO_CTA_TEXT}}</span><span aria-hidden="true">↗</span>
+            <span>{"{{HERO_CTA_TEXT}}"}</span><span aria-hidden="true">↗</span>
           </a>
         </div>
         <svg className={styles.heroLines} viewBox="0 0 1920 360" preserveAspectRatio="none" aria-hidden="true">
