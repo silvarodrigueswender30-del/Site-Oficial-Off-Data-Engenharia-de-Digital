@@ -346,18 +346,18 @@ generateRoute('estrategias/seo-local-imobiliarias-luxo', {
 
 // --- Strategy: Website Creation for Real Estate ---
 generateRoute('estrategias/criacao-de-site-para-imobiliaria', {
-  title: '{{META_TITLE}}',
-  description: '{{META_DESCRIPTION}}',
+  title: 'Criação de Site para Imobiliária em Uberlândia | Off-Data',
+  description: 'Sites para imobiliárias de alto padrão em Uberlândia. Design imersivo e SEO técnico que convertem o comprador antes da visita. Fale com a Off-Data.',
   canonical: 'https://www.offdata.digital/estrategias/criacao-de-site-para-imobiliaria',
   image: 'https://www.offdata.digital/imagens/imagem-estrategia/criacao-de-site-imobiliaria-hero.avif',
-  imageAlt: '{{HERO_IMAGE_ALT}}',
+  imageAlt: 'Design imersivo e site de alto padrão para imobiliárias de luxo em Uberlândia',
   schema: {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'Article',
-        headline: '{{HERO_H1}}',
-        description: '{{META_DESCRIPTION}}',
+        headline: 'Site para Imobiliária de Luxo em Uberlândia',
+        description: 'Sites para imobiliárias de alto padrão em Uberlândia. Design imersivo e SEO técnico que convertem o comprador antes da visita. Fale com a Off-Data.',
         url: 'https://www.offdata.digital/estrategias/criacao-de-site-para-imobiliaria',
         inLanguage: 'pt-BR',
         image: 'https://www.offdata.digital/imagens/imagem-estrategia/criacao-de-site-imobiliaria-hero.avif',
@@ -378,42 +378,42 @@ generateRoute('estrategias/criacao-de-site-para-imobiliaria', {
           mainEntity: [
             {
               '@type': 'Question',
-              name: '{{FAQ_1_Q}}',
+              name: 'Quanto custa um site para imobiliária de luxo?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: '{{FAQ_1_A}}'
+                text: 'O investimento varia conforme o número de imóveis, integrações necessárias e nível de personalização visual. A Off-Data apresenta uma proposta específica após entender o portfólio e os objetivos da imobiliária em Uberlândia, evitando pacotes genéricos que não refletem o posicionamento da marca.'
               }
             },
             {
               '@type': 'Question',
-              name: '{{FAQ_2_Q}}',
+              name: 'Quanto tempo leva para o site ficar pronto?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: '{{FAQ_2_A}}'
+                text: 'Projetos de site para imobiliária costumam levar entre 4 e 8 semanas, dependendo da complexidade do portfólio e da quantidade de conteúdo a ser estruturado. O prazo exato é definido logo após o diagnóstico inicial.'
               }
             },
             {
               '@type': 'Question',
-              name: '{{FAQ_3_Q}}',
+              name: 'Como funciona a integração do site com o WhatsApp e o CRM da imobiliária?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: '{{FAQ_3_A}}'
+                text: 'O site é construído com formulários e botões conectados diretamente ao WhatsApp da equipe comercial, e pode ser integrado a sistemas de CRM já utilizados pela imobiliária. Isso garante que nenhum contato gerado pelo site fique sem retorno.'
               }
             },
             {
               '@type': 'Question',
-              name: '{{FAQ_4_Q}}',
+              name: 'O site realmente ajuda a vender mais imóveis de alto padrão?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: '{{FAQ_4_A}}'
+                text: 'Um site bem estruturado reduz o atrito entre o interesse do comprador e o agendamento da visita, apresentando o imóvel com a qualidade visual e a informação que esse público espera. Isso não substitui o trabalho do corretor, mas qualifica o lead antes do primeiro contato.'
               }
             },
             {
               '@type': 'Question',
-              name: '{{FAQ_5_Q}}',
+              name: 'O site funciona também para imobiliárias que atuam fora de Uberlândia, em cidades como Uberaba ou Araguari?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: '{{FAQ_5_A}}'
+                text: 'Sim. A estrutura de SEO local é construída para abranger as cidades do Triângulo Mineiro em que a imobiliária atua, com páginas e dados estruturados que ajudam o site a aparecer nas buscas dessas regiões específicas.'
               }
             }
           ]
@@ -421,9 +421,9 @@ generateRoute('estrategias/criacao-de-site-para-imobiliaria', {
       },
       {
         '@type': 'Service',
-        name: '{{SERVICE_NAME}}',
-        description: '{{SERVICE_DESCRIPTION}}',
-        areaServed: '{{AREA_SERVED}}',
+        name: 'Criação de Site para Imobiliária de Luxo',
+        description: 'Desenvolvimento de sites de alto padrão para imobiliárias de luxo em Uberlândia, com SEO técnico, design imersivo e otimização para IAs.',
+        areaServed: 'Uberlândia, MG',
         provider: {
           '@id': 'https://www.offdata.digital/#business'
         }

@@ -11,6 +11,18 @@ const REVEAL_RATIO = 0.5;
 
 const articles = [
   {
+    category: 'Sites',
+    dateShort: '7.09.26',
+    dateLong: '7.09.2026',
+    dateISO: '2026-07-09',
+    title: 'Site para Imobiliária de Luxo em Uberlândia',
+    image: '/imagens/imagem-estrategia/criacao-de-site-imobiliaria-hero.avif',
+    imageWidth: 1600,
+    imageHeight: 894,
+    alt: 'Design imersivo e site de alto padrão para imobiliárias de luxo em Uberlândia',
+    url: '/estrategias/criacao-de-site-para-imobiliaria',
+  },
+  {
     category: 'SEO',
     dateShort: '5.25.26',
     dateLong: '5.25.2026',
