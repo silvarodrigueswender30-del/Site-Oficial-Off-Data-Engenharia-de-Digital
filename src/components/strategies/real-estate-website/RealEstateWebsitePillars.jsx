@@ -6,11 +6,11 @@ import styles from './RealEstateWebsitePage.module.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const pillars = [
-  ['{{PILLAR_1_NAME}}', '{{PILLAR_1_DESC}}'],
-  ['{{PILLAR_2_NAME}}', '{{PILLAR_2_DESC}}'],
-  ['{{PILLAR_3_NAME}}', '{{PILLAR_3_DESC}}'],
-  ['{{PILLAR_4_NAME}}', '{{PILLAR_4_DESC}}'],
-  ['{{PILLAR_5_NAME}}', '{{PILLAR_5_DESC}}'],
+  ['Design Imersivo', 'Apresentação visual dos imóveis com hierarquia clara de informação, fotografia em destaque e navegação pensada para o comprador de alto padrão.'],
+  ['SEO Técnico Local', 'Estrutura de site otimizada para posicionar a imobiliária nas buscas de Uberlândia e do Triângulo Mineiro, com foco em quem já está pronto para comprar.'],
+  ['Performance Web', 'Carregamento rápido em qualquer dispositivo, essencial para reter um comprador que avalia várias opções em poucos minutos.'],
+  ['GEO — Otimização para IAs', 'Estruturação de conteúdo e dados para que assistentes de IA reconheçam e recomendem a imobiliária em buscas conversacionais.'],
+  ['Integração com Captação', 'Formulários e fluxos de contato conectados diretamente ao WhatsApp e ao CRM da imobiliária, reduzindo o tempo entre interesse e contato.'],
 ];
 
 const RealEstateWebsitePillars = () => {
@@ -30,10 +30,10 @@ const RealEstateWebsitePillars = () => {
 
   return (
     <section className={styles.editorial}>
-      <div className={styles.sectionHeading}><h2>{"{{PILLARS_TITLE}}"}</h2></div>
+      <div className={styles.sectionHeading}><h2>{"O que sustenta um site de imobiliária de alto padrão?"}</h2></div>
       <div className={styles.pillarsLayout}>
         <div className={styles.sideImage}>
-          <img ref={imageRef} src="/imagens/imagem-estrategia/criacao-de-site-imobiliaria-img2.avif" width="2048" height="2048" alt="{{PILLARS_IMAGE_ALT}}" loading="lazy" decoding="async" />
+          <img ref={imageRef} src="/imagens/imagem-estrategia/criacao-de-site-imobiliaria-img2.avif" width="2048" height="2048" alt="Mercado regional de alto valor em Uberlândia" loading="lazy" decoding="async" />
         </div>
         <ol className={styles.pillars}>
           {pillars.map(([title, text], index) => (

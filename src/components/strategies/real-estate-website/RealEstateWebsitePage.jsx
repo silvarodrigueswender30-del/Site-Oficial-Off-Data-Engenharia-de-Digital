@@ -8,8 +8,8 @@ import RealEstateWebsiteQuestionSections from './RealEstateWebsiteQuestionSectio
 import RealEstateWebsiteFaq, { faqItems } from './RealEstateWebsiteFaq';
 import styles from './RealEstateWebsitePage.module.css';
 
-const title = '{{META_TITLE}}';
-const description = '{{META_DESCRIPTION}}';
+const title = 'Criação de Site para Imobiliária em Uberlândia | Off-Data';
+const description = 'Sites para imobiliárias de alto padrão em Uberlândia. Design imersivo e SEO técnico que convertem o comprador antes da visita. Fale com a Off-Data.';
 const canonical = 'https://www.offdata.digital/estrategias/criacao-de-site-para-imobiliaria';
 const image = 'https://www.offdata.digital/imagens/imagem-estrategia/criacao-de-site-imobiliaria-hero.avif';
 
@@ -18,7 +18,7 @@ const schema = {
   '@graph': [
     {
       '@type': 'Article',
-      headline: '{{HERO_H1}}',
+      headline: 'Site para Imobiliária de Luxo em Uberlândia',
       description,
       url: canonical,
       inLanguage: 'pt-BR',
@@ -49,9 +49,9 @@ const schema = {
     },
     {
       '@type': 'Service',
-      name: '{{SERVICE_NAME}}',
-      description: '{{SERVICE_DESCRIPTION}}',
-      areaServed: '{{AREA_SERVED}}',
+      name: 'Criação de Site para Imobiliária de Luxo',
+      description: 'Desenvolvimento de sites de alto padrão para imobiliárias de luxo em Uberlândia, com SEO técnico, design imersivo e otimização para IAs.',
+      areaServed: 'Uberlândia, MG',
       provider: {
         '@id': 'https://www.offdata.digital/#business',
       },
@@ -69,12 +69,12 @@ const RealEstateWebsitePage = () => {
       [document.querySelector('meta[property="og:url"]'), 'content', canonical],
       [document.querySelector('meta[property="og:image"]'), 'content', image],
       [document.querySelector('meta[property="og:image:secure_url"]'), 'content', image],
-      [document.querySelector('meta[property="og:image:alt"]'), 'content', '{{HERO_IMAGE_ALT}}'],
+      [document.querySelector('meta[property="og:image:alt"]'), 'content', 'Arquitetura premium representando a criação de site para imobiliária de luxo'],
       [document.querySelector('meta[name="twitter:card"]'), 'content', 'summary_large_image'],
       [document.querySelector('meta[name="twitter:title"]'), 'content', title],
       [document.querySelector('meta[name="twitter:description"]'), 'content', description],
       [document.querySelector('meta[name="twitter:image"]'), 'content', image],
-      [document.querySelector('meta[name="twitter:image:alt"]'), 'content', '{{HERO_IMAGE_ALT}}'],
+      [document.querySelector('meta[name="twitter:image:alt"]'), 'content', 'Arquitetura premium representando a criação de site para imobiliária de luxo'],
     ];
     const previousTitle = document.title;
     const previous = targets.map(([element, attribute]) => [element, attribute, element?.getAttribute(attribute)]);

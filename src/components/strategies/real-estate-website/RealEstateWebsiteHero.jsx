@@ -9,9 +9,9 @@ const RealEstateWebsiteHero = () => (
     <section className={styles.hero} data-section="light">
       <div className={styles.heroInner}>
         <div className={styles.heroHeading}>
-          <h1>{"{{HERO_H1}}"}</h1>
+          <h1>{"Site para Imobiliária de Luxo em Uberlândia"}</h1>
           <a className={styles.primaryButton} {...whatsappLinkProps}>
-            <span>{"{{HERO_CTA_TEXT}}"}</span><span aria-hidden="true">↗</span>
+            <span>{"Solicitar diagnóstico digital"}</span><span aria-hidden="true">↗</span>
           </a>
         </div>
         <svg className={styles.heroLines} viewBox="0 0 1920 360" preserveAspectRatio="none" aria-hidden="true">
@@ -24,7 +24,7 @@ const RealEstateWebsiteHero = () => (
       </div>
     </section>
     <div className={styles.panorama}>
-      <img src="/imagens/imagem-estrategia/criacao-de-site-imobiliaria-hero.avif" width="2752" height="1536" alt="{{HERO_IMAGE_ALT}}" loading="eager" decoding="async" fetchPriority="high" />
+      <img src="/imagens/imagem-estrategia/criacao-de-site-imobiliaria-hero.avif" width="2752" height="1536" alt="Arquitetura premium representando a criação de site para imobiliária de luxo" loading="eager" decoding="async" fetchPriority="high" />
     </div>
   </>
 );
