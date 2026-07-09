@@ -21,6 +21,7 @@ const PerformanceWebPage = lazy(() => import('./components/services/performance-
 const B2BAutomationPage = lazy(() => import('./components/services/b2b-automation/B2BAutomationPage'));
 const TechnicalContentPage = lazy(() => import('./components/services/technical-content/TechnicalContentPage'));
 const RealEstateSeoPage = lazy(() => import('./components/strategies/real-estate-seo/RealEstateSeoPage'));
+const RealEstateWebsitePage = lazy(() => import('./components/strategies/real-estate-website/RealEstateWebsitePage'));
 const ClinicsImmersiveSitesPage = lazy(() => import('./components/strategies/clinics-immersive-sites/ClinicsImmersiveSitesPage'));
 const B2BHighIntentTrafficPage = lazy(() => import('./components/strategies/b2b-high-intent-traffic/B2BHighIntentTrafficPage'));
 const HighTicketWebPerformancePage = lazy(() => import('./components/strategies/high-ticket-web-performance/HighTicketWebPerformancePage'));
@@ -130,6 +131,14 @@ function AppContent() {
     return (
       <Suspense fallback={null}>
         <RealEstateSeoPage />
+      </Suspense>
+    );
+  }
+
+  if (path === '/estrategias/criacao-de-site-para-imobiliaria' || previewPage === 'estrategias/criacao-de-site-para-imobiliaria') {
+    return (
+      <Suspense fallback={null}>
+        <RealEstateWebsitePage />
       </Suspense>
     );
   }

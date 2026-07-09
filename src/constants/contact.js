@@ -14,6 +14,7 @@ export const WHATSAPP_MESSAGES = {
   b2bAutomation: 'Olá, vim pela página de Automação Comercial B2B da Off-Data e quero organizar meu comercial para vender com mais previsibilidade.',
   technicalContent: 'Olá, vim pela página de Conteúdo Técnico para SEO da Off-Data e quero fortalecer a autoridade digital da minha empresa.',
   realEstateSeo: 'Olá, vim pela página de estratégia para Imobiliárias de Luxo da Off-Data e quero entender como gerar mais leads qualificados.',
+  realEstateWebsite: 'Olá, vim pela página de estratégia de Criação de Sites para Imobiliárias da Off-Data e quero entender como ter um site que realmente converte.',
   clinicsImmersiveSites: 'Olá, vim pela página de estratégia para Clínicas Médicas da Off-Data e quero melhorar minha presença digital.',
   b2bHighIntentTraffic: 'Olá, vim pela página de estratégia para empresas B2B da Off-Data e quero atrair clientes com maior intenção de compra.',
   highTicketWebPerformance: 'Olá, vim pela página de estratégia para Marcas High Ticket da Off-Data e quero posicionar minha empresa de forma mais premium.',

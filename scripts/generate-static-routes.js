@@ -344,6 +344,94 @@ generateRoute('estrategias/seo-local-imobiliarias-luxo', {
   }
 });
 
+// --- Strategy: Website Creation for Real Estate ---
+generateRoute('estrategias/criacao-de-site-para-imobiliaria', {
+  title: '{{META_TITLE}}',
+  description: '{{META_DESCRIPTION}}',
+  canonical: 'https://www.offdata.digital/estrategias/criacao-de-site-para-imobiliaria',
+  image: 'https://www.offdata.digital/imagens/imagem-estrategia/criacao-de-site-imobiliaria-hero.avif',
+  imageAlt: '{{HERO_IMAGE_ALT}}',
+  schema: {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        headline: '{{HERO_H1}}',
+        description: '{{META_DESCRIPTION}}',
+        url: 'https://www.offdata.digital/estrategias/criacao-de-site-para-imobiliaria',
+        inLanguage: 'pt-BR',
+        image: 'https://www.offdata.digital/imagens/imagem-estrategia/criacao-de-site-imobiliaria-hero.avif',
+        author: {
+          '@type': 'Organization',
+          '@id': 'https://www.offdata.digital/#business',
+          name: 'Off-Data Engenharia Digital',
+          url: 'https://www.offdata.digital/'
+        },
+        publisher: {
+          '@type': 'Organization',
+          '@id': 'https://www.offdata.digital/#business',
+          name: 'Off-Data Engenharia Digital',
+          url: 'https://www.offdata.digital/'
+        },
+        mainEntity: {
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: '{{FAQ_1_Q}}',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: '{{FAQ_1_A}}'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '{{FAQ_2_Q}}',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: '{{FAQ_2_A}}'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '{{FAQ_3_Q}}',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: '{{FAQ_3_A}}'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '{{FAQ_4_Q}}',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: '{{FAQ_4_A}}'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: '{{FAQ_5_Q}}',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: '{{FAQ_5_A}}'
+              }
+            }
+          ]
+        }
+      },
+      {
+        '@type': 'Service',
+        name: '{{SERVICE_NAME}}',
+        description: '{{SERVICE_DESCRIPTION}}',
+        areaServed: '{{AREA_SERVED}}',
+        provider: {
+          '@id': 'https://www.offdata.digital/#business'
+        }
+      }
+    ]
+  }
+});
+
 // --- Strategy: Immersive Sites for Medical Clinics ---
 generateRoute('estrategias/sites-imersivos-clinicas-medicas', {
   title: 'Sites para Clínicas Médicas de Alto Padrão em Uberlândia | Off-Data Digital',
