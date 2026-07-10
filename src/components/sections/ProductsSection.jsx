@@ -939,7 +939,7 @@ const ProductsSection = () => {
           .products_mobile_pagination {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1.5rem;
             padding: 0;
             margin: 0;
           }
@@ -961,8 +961,8 @@ const ProductsSection = () => {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
           }
 
           .products_mobile_dot.is-active {

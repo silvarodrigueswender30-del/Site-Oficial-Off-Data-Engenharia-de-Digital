@@ -185,7 +185,7 @@ const Header = () => {
           grid-column-gap: .25em;
           -webkit-backdrop-filter: blur(7px);
           backdrop-filter: blur(7px);
-          background-color: #00000047;
+          background-color: #011E4CD0;
           border-radius: .25em;
           justify-content: flex-start;
           align-items: stretch;
@@ -221,7 +221,7 @@ const Header = () => {
           grid-column-gap: .25em;
           -webkit-backdrop-filter: blur(7px);
           backdrop-filter: blur(7px);
-          background-color: #00000047;
+          background-color: #011E4CD0;
           border-radius: .25em;
           justify-content: flex-start;
           align-items: stretch;

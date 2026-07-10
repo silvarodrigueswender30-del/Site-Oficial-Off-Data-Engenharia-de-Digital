@@ -406,7 +406,7 @@ const NewsroomSection = () => {
       role={mobile ? "group" : undefined}
       className={mobile ? 'splide__slide newsroom_carousel w-dyn-item' : 'article_item w-dyn-item'}
       aria-label={mobile ? `${index + 1} of ${articles.length}` : undefined}
-      aria-labelledby={`${mobile ? 'mobile' : 'desktop'}-strategy-title-${index}`}
+      aria-labelledby={mobile ? `mobile-strategy-title-${index}` : undefined}
     >
       <a href={article.url} className="article_link w-inline-block">
         <div className="image_article">
@@ -770,7 +770,7 @@ const NewsroomSection = () => {
 
           .newsroom .splide__pagination {
             display: flex;
-            gap: .75rem;
+            gap: 1.5rem;
             margin: 0;
             padding: 0;
             list-style: none;
@@ -802,8 +802,8 @@ const NewsroomSection = () => {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
           }
 
           .newsroom .splide__pagination__page.is-active {
