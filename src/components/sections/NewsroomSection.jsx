@@ -403,7 +403,7 @@ const NewsroomSection = () => {
   const renderArticleCard = (article, index, mobile = false) => (
     <article
       key={`${mobile ? 'mobile' : 'desktop'}-${article.title}`}
-      role="listitem"
+      role="group"
       className={mobile ? 'splide__slide newsroom_carousel w-dyn-item' : 'article_item w-dyn-item'}
       aria-label={`${index + 1} of ${articles.length}`}
       aria-labelledby={`${mobile ? 'mobile' : 'desktop'}-strategy-title-${index}`}
