@@ -939,7 +939,7 @@ const ProductsSection = () => {
           .products_mobile_pagination {
             display: flex;
             align-items: center;
-            gap: 0.45rem;
+            gap: 0.75rem;
             padding: 0;
             margin: 0;
           }
@@ -951,6 +951,18 @@ const ProductsSection = () => {
             border-radius: 100%;
             background: rgba(4, 74, 179, 0.35);
             padding: 0;
+            position: relative;
+            cursor: pointer;
+          }
+
+          .products_mobile_dot::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
           }
 
           .products_mobile_dot.is-active {

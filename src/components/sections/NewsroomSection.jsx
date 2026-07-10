@@ -403,9 +403,9 @@ const NewsroomSection = () => {
   const renderArticleCard = (article, index, mobile = false) => (
     <article
       key={`${mobile ? 'mobile' : 'desktop'}-${article.title}`}
-      role="group"
+      role={mobile ? "group" : undefined}
       className={mobile ? 'splide__slide newsroom_carousel w-dyn-item' : 'article_item w-dyn-item'}
-      aria-label={`${index + 1} of ${articles.length}`}
+      aria-label={mobile ? `${index + 1} of ${articles.length}` : undefined}
       aria-labelledby={`${mobile ? 'mobile' : 'desktop'}-strategy-title-${index}`}
     >
       <a href={article.url} className="article_link w-inline-block">
@@ -770,7 +770,7 @@ const NewsroomSection = () => {
 
           .newsroom .splide__pagination {
             display: flex;
-            gap: .55rem;
+            gap: .75rem;
             margin: 0;
             padding: 0;
             list-style: none;
@@ -780,7 +780,9 @@ const NewsroomSection = () => {
           }
 
           .newsroom .splide__pagination li {
-            display: flex;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
           }
 
           .newsroom .splide__pagination__page {
@@ -790,6 +792,18 @@ const NewsroomSection = () => {
             border-radius: 50%;
             padding: 0;
             background: rgba(4, 74, 179, .3);
+            position: relative;
+            cursor: pointer;
+          }
+
+          .newsroom .splide__pagination__page::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
           }
 
           .newsroom .splide__pagination__page.is-active {
@@ -839,7 +853,7 @@ const NewsroomSection = () => {
           </div>
           <div className="cms_newsroom desktop_ver">
             <div className="w-dyn-list">
-              <div fs-list-element="list" role="list" className="articles_grid general_home w-dyn-items">
+              <div fs-list-element="list" className="articles_grid general_home w-dyn-items">
                 {articles.map((article, index) => renderArticleCard(article, index))}
               </div>
             </div>
@@ -848,7 +862,7 @@ const NewsroomSection = () => {
             <div className="container newsroom_carousel">
               <div className="splide slider1">
                 <div className="splide__track w-dyn-list" ref={mobileTrackRef} onScroll={updateMobileSlide}>
-                  <div role="list" className="splide__list w-dyn-items">
+                  <div className="splide__list w-dyn-items">
                     {articles.map((article, index) => renderArticleCard(article, index, true))}
                   </div>
                 </div>
