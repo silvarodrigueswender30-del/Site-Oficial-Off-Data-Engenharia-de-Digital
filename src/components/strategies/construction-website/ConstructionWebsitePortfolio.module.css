@@ -1,0 +1,317 @@
+.portfolioSection {
+  background: var(--white);
+  padding: 6em 1.75rem 8em;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(4, 74, 179, 0.08);
+}
+
+.headingContainer {
+  margin-bottom: 3.5em;
+  max-width: 800px;
+}
+
+.headingContainer h2 {
+  color: var(--blue);
+  font-size: 2.8em;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.4em;
+}
+
+.headingContainer p {
+  color: var(--blue);
+  opacity: 0.8;
+  font-size: 1.05em;
+  font-weight: 500;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ── Desktop Layout & Marquee ── */
+.desktopContainer {
+  display: block;
+}
+
+.marquee {
+  width: 100vw;
+  margin-left: -1.75rem;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5em 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  gap: 2.5em;
+  animation: marqueeScroll 45s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.marquee:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.portfolioCard {
+  width: 30vw;
+  flex-shrink: 0;
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(4, 74, 179, 0.06);
+  border: 1px solid rgba(4, 74, 179, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  transform: translate3d(0, 0, 0);
+}
+
+.portfolioCard:hover {
+  transform: translate3d(0, -4px, 0);
+  box-shadow: 0 12px 35px rgba(4, 74, 179, 0.12);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 18.75vw; /* Mantém a proporção exata de 16:10 para imagens 1586x992 */
+  overflow: hidden;
+  background: #f4f6fa;
+}
+
+.imageFallback {
+  position: absolute;
+  inset: 0;
+  background: #eceff4;
+  z-index: 1;
+}
+
+.cardImage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100% !important;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.portfolioCard:hover .cardImage {
+  transform: scale(1.07);
+}
+
+.cardContent {
+  padding: 1.4em 1.6em 1.6em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.cardContent h3 {
+  font-size: 1.35em;
+  font-weight: 600;
+  color: var(--blue);
+  margin: 0;
+}
+
+.cardContent p {
+  font-size: 0.92em;
+  color: var(--blue);
+  opacity: 0.75;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* ── Mobile Layout & Slider ── */
+.mobileContainer {
+  display: none;
+}
+
+/* ── Responsive breakpoints matching parent page ── */
+@media (max-width: 1023px) {
+  .desktopContainer {
+    display: none;
+  }
+  
+  .mobileContainer {
+    display: block;
+  }
+
+  .portfolioSection {
+    padding: 5rem 1.25rem 6rem;
+  }
+
+  .headingContainer {
+    margin-bottom: 2.5em;
+  }
+
+  .headingContainer h2 {
+    font-size: 3.6em;
+  }
+
+  .headingContainer p {
+    font-size: 1.3em;
+  }
+
+  .sliderWindow {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .sliderTrack {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .portfolioCardMobile {
+    width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(4, 74, 179, 0.06);
+    border: 1px solid rgba(4, 74, 179, 0.06);
+  }
+
+  .portfolioCardMobile .imageWrapper {
+    height: 400px; /* Altura fixa generosa em tablets */
+  }
+
+  .controlsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  .paginationDots {
+    display: flex;
+    gap: 0.6em;
+  }
+
+  .dot {
+    width: 0.7em;
+    height: 0.7em;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(4, 74, 179, 0.12);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .activeDot {
+    background: var(--blue);
+  }
+
+  .arrowButtons {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .arrowButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 0;
+    border-radius: .1875rem;
+    background: rgba(4, 74, 179, .08);
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+  }
+
+  .arrowButton:hover {
+    background: rgba(4, 74, 179, .15);
+  }
+
+  .arrowButton:active {
+    background: rgba(4, 74, 179, .25);
+    opacity: 0.8;
+  }
+
+  .arrowButton.prev img {
+    transform: rotate(180deg);
+  }
+
+  .arrowButton img {
+    width: 1.05rem;
+    height: 1.05rem;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 767px) {
+  .portfolioSection {
+    padding: 4rem 1rem 5rem;
+  }
+
+  .headingContainer h2 {
+    font-size: 4.6em;
+  }
+
+  .headingContainer p {
+    font-size: 1.85em;
+  }
+
+  .portfolioCardMobile .imageWrapper {
+    height: 320px; /* Altura fixa generosa em mobile */
+  }
+
+  .cardContent h3 {
+    font-size: 2.2em;
+  }
+
+  .cardContent p {
+    font-size: 1.6em;
+  }
+
+  .dot {
+    width: 0.7em;
+    height: 0.7em;
+  }
+}
+
+@media (max-width: 479px) {
+  .headingContainer h2 {
+    font-size: 6.5em;
+  }
+
+  .headingContainer p {
+    font-size: 3.65em;
+  }
+
+  .portfolioCardMobile .imageWrapper {
+    height: 220px; /* Altura fixa proporcional em celulares pequenos */
+  }
+
+  .cardContent h3 {
+    font-size: 4em;
+  }
+
+  .cardContent p {
+    font-size: 3.3em;
+  }
+
+  .dot {
+    width: 0.8em;
+    height: 0.8em;
+  }
+}

@@ -432,6 +432,94 @@ generateRoute('estrategias/criacao-de-site-para-imobiliaria', {
   }
 });
 
+// --- Strategy: Website Creation for Construction Companies ---
+generateRoute('estrategias/criacao-de-site-para-construtora', {
+  title: 'Criação de Site para Construtora em Uberlândia | Off-Data',
+  description: 'Sites para construtoras em Uberlândia com design imersivo e SEO técnico que apresentam empreendimentos com credibilidade. Fale com a Off-Data Digital.',
+  canonical: 'https://www.offdata.digital/estrategias/criacao-de-site-para-construtora',
+  image: 'https://www.offdata.digital/imagens/imagem-estrategia/criacao-de-site-construtora-hero.avif',
+  imageAlt: 'Engenharia digital para construtoras em Uberlândia — Off-Data',
+  schema: {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        headline: 'Criação de Site para Construtora em Uberlândia | Off-Data',
+        description: 'Sites para construtoras em Uberlândia com design imersivo e SEO técnico que apresentam empreendimentos com credibilidade. Fale com a Off-Data Digital.',
+        url: 'https://www.offdata.digital/estrategias/criacao-de-site-para-construtora',
+        inLanguage: 'pt-BR',
+        image: 'https://www.offdata.digital/imagens/imagem-estrategia/criacao-de-site-construtora-hero.avif',
+        author: {
+          '@type': 'Organization',
+          '@id': 'https://www.offdata.digital/#business',
+          name: 'Off-Data Engenharia Digital',
+          url: 'https://www.offdata.digital/'
+        },
+        publisher: {
+          '@type': 'Organization',
+          '@id': 'https://www.offdata.digital/#business',
+          name: 'Off-Data Engenharia Digital',
+          url: 'https://www.offdata.digital/'
+        },
+        mainEntity: {
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'Quanto custa um site para construtora?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'O investimento depende do número de empreendimentos a serem apresentados, da quantidade de conteúdo (plantas, renders, vídeos) e das integrações necessárias. A Off-Data apresenta uma proposta específica após o diagnóstico do portfólio da construtora em Uberlândia.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Quanto tempo leva para o site ficar pronto?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Projetos institucionais com um ou mais empreendimentos costumam levar entre 4 e 8 semanas, variando conforme a quantidade de material a ser estruturado e o número de páginas de lançamento.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'É possível criar uma página específica para cada empreendimento?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Sim. Cada empreendimento pode ter sua própria página, com plantas, memorial descritivo, galeria e formulário de contato específico, o que facilita tanto a navegação do comprador quanto o acompanhamento de leads por lançamento.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'O site ajuda a vender unidades mais rápido?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Um site bem estruturado reduz o tempo entre o interesse do comprador e o primeiro contato qualificado com o corretor, apresentando as informações que normalmente seriam repassadas manualmente. Isso agiliza o processo comercial, embora a decisão final continue dependendo do trabalho da equipe de vendas.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'A construtora pode usar o mesmo site para empreendimentos em outras cidades do Triângulo Mineiro?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Sim. A estrutura permite adicionar novos empreendimentos em outras cidades da região, com páginas e SEO local específicos para cada localidade, mantendo a mesma identidade institucional da construtora.'
+              }
+            }
+          ]
+        }
+      },
+      {
+        '@type': 'Service',
+        name: 'Criação de Site para Construtora',
+        description: 'Desenvolvimento de sites institucionais e de empreendimentos para construtoras em Uberlândia, com SEO técnico, design imersivo e otimização para IAs.',
+        areaServed: 'Uberlândia, MG',
+        provider: {
+          '@id': 'https://www.offdata.digital/#business'
+        }
+      }
+    ]
+  }
+});
+
 // --- Strategy: Immersive Sites for Medical Clinics ---
 generateRoute('estrategias/sites-imersivos-clinicas-medicas', {
   title: 'Sites para Clínicas Médicas de Alto Padrão em Uberlândia | Off-Data Digital',

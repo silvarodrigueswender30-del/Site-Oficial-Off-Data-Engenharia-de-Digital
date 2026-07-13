@@ -27,6 +27,7 @@ const B2BHighIntentTrafficPage = lazy(() => import('./components/strategies/b2b-
 const HighTicketWebPerformancePage = lazy(() => import('./components/strategies/high-ticket-web-performance/HighTicketWebPerformancePage'));
 const AuthorityPage = lazy(() => import('./components/strategies/seo-tecnico-autoridade-digital/AuthorityPage'));
 const OperationsPage = lazy(() => import('./components/strategies/automacao-operacoes-comerciais/OperationsPage'));
+const ConstructionWebsitePage = lazy(() => import('./components/strategies/construction-website/ConstructionWebsitePage'));
 
 function NotFound() {
   useEffect(() => {
@@ -139,6 +140,14 @@ function AppContent() {
     return (
       <Suspense fallback={null}>
         <RealEstateWebsitePage />
+      </Suspense>
+    );
+  }
+
+  if (path === '/estrategias/criacao-de-site-para-construtora' || previewPage === 'estrategias/criacao-de-site-para-construtora') {
+    return (
+      <Suspense fallback={null}>
+        <ConstructionWebsitePage />
       </Suspense>
     );
   }

@@ -12,6 +12,18 @@ const REVEAL_RATIO = 0.5;
 const articles = [
   {
     category: 'Sites',
+    dateShort: '7.13.26',
+    dateLong: '7.13.2026',
+    dateISO: '2026-07-13',
+    title: 'Site para Construtora em Uberlândia',
+    image: '/imagens/imagem-estrategia/criacao-de-site-construtora-hero.avif',
+    imageWidth: 1600,
+    imageHeight: 894,
+    alt: 'Engenharia digital para construtoras em Uberlândia — Off-Data',
+    url: '/estrategias/criacao-de-site-para-construtora',
+  },
+  {
+    category: 'Sites',
     dateShort: '7.09.26',
     dateLong: '7.09.2026',
     dateISO: '2026-07-09',

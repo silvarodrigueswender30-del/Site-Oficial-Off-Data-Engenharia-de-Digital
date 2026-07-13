@@ -20,6 +20,7 @@ export const WHATSAPP_MESSAGES = {
   highTicketWebPerformance: 'Olá, vim pela página de estratégia para Marcas High Ticket da Off-Data e quero posicionar minha empresa de forma mais premium.',
   authorityDigital: 'Olá, vim pela página de Autoridade Digital da Off-Data e quero fortalecer a presença, confiança e posicionamento da minha empresa no Google.',
   commercialOperations: 'Olá, vim pela página de Operações Comerciais da Off-Data e quero organizar melhor meus processos digitais, atendimento e geração de oportunidades.',
+  constructionWebsite: 'Olá, vim pela página de estratégia de Criação de Sites para Construtoras da Off-Data e quero entender como ter um site que realmente converte.',
 };
 
 export function getWhatsAppUrl(message = WHATSAPP_MESSAGES.generic) {
