@@ -28,6 +28,7 @@ const HighTicketWebPerformancePage = lazy(() => import('./components/strategies/
 const AuthorityPage = lazy(() => import('./components/strategies/seo-tecnico-autoridade-digital/AuthorityPage'));
 const OperationsPage = lazy(() => import('./components/strategies/automacao-operacoes-comerciais/OperationsPage'));
 const ConstructionWebsitePage = lazy(() => import('./components/strategies/construction-website/ConstructionWebsitePage'));
+const ServicoLanding = lazy(() => import('./pages/ServicoLanding'));
 
 function NotFound() {
   useEffect(() => {
@@ -188,6 +189,14 @@ function AppContent() {
     return (
       <Suspense fallback={null}>
         <OperationsPage />
+      </Suspense>
+    );
+  }
+
+  if (path === '/landing-preview' || previewPage === 'landing-preview') {
+    return (
+      <Suspense fallback={null}>
+        <ServicoLanding />
       </Suspense>
     );
   }
