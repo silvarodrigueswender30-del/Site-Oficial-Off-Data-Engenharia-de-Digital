@@ -402,7 +402,8 @@ const GLOBAL_CSS = `
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4em;
-    align-items: center;
+    /* stretch: coluna de imagens fica com mesma altura do bloco de texto */
+    align-items: stretch;
   }
   @media (max-width: 767px) {
     .lp-overview {
@@ -418,33 +419,35 @@ const GLOBAL_CSS = `
     gap: 1.5em;
   }
 
+  /* Colagem lado a lado: ocupa 100% da altura da coluna (= mesma altura do texto) */
   .lp-overview__images {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 12px;
-    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    gap: 0.75em;
+    /* Preenche a altura total da célula do grid */
+    height: 100%;
+    min-height: 28em;
   }
   @media (max-width: 767px) {
     .lp-overview__images {
-      grid-template-columns: 1fr 1fr;
+      min-height: 20em;
     }
   }
 
-  /* Colagem: primeira imagem retrato, segunda imagem menor quadrada */
+  /* Imagem principal — 60% da largura, altura total */
   .lp-overview__img-1 {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-    aspect-ratio: 4 / 5;
+    flex: 0 0 60%;
     overflow: hidden;
+    border-radius: 0.375em;
   }
 
+  /* Imagem secundária — 40% restante, mesma altura */
   .lp-overview__img-2 {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    aspect-ratio: 1 / 1;
+    flex: 1;
     overflow: hidden;
-    margin-bottom: 2em; /* Deslocamento vertical para assimetria */
+    border-radius: 0.375em;
+    /* Remove o margin-bottom assimétrico anterior */
+    margin-bottom: 0;
   }
 
   /* ══════════════════════════════════════════════════════
@@ -1669,10 +1672,11 @@ const ServicoLanding = () => {
               
               {/* Coluna de imagens em colagem */}
               <div className="lp-overview__images">
-                <div className="lp-overview__img-1">
+                {/* Imagem principal — 60% da largura, altura total da colagem */}
+                <div className="lp-overview__img-1" style={{ display: 'flex', flexDirection: 'column' }}>
                   <div
                     className="img-placeholder img-placeholder--light"
-                    style={{ width: '100%', height: '100%', borderRadius: '6px' }}
+                    style={{ width: '100%', flex: 1, borderRadius: '0.375em', minHeight: 0 }}
                     role="img"
                     aria-label="IMG: Operação principal"
                   >
@@ -1680,10 +1684,11 @@ const ServicoLanding = () => {
                     <div>IMG: [Operação de<br />carga em pista]</div>
                   </div>
                 </div>
-                <div className="lp-overview__img-2">
+                {/* Imagem secundária — 40% restante, mesma altura */}
+                <div className="lp-overview__img-2" style={{ display: 'flex', flexDirection: 'column' }}>
                   <div
                     className="img-placeholder img-placeholder--light"
-                    style={{ width: '100%', height: '100%', borderRadius: '6px' }}
+                    style={{ width: '100%', flex: 1, borderRadius: '0.375em', minHeight: 0 }}
                     role="img"
                     aria-label="IMG: Equipe ou detalhe"
                   >
