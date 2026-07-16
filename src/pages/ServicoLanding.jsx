@@ -14,15 +14,87 @@
  * =========================================================
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
+import offDataWhiteLogo from '../assets/images/Off - Data-branca.svg';
+import SharedPortfolioCarousel from '../components/SharedPortfolioCarousel';
+import { realEstatePortfolioItems } from '../constants/portfolioData';
+
+function useCountUp(targetString, duration = 1800) {
+  const [value, setValue] = useState("0");
+  const hasAnimatedRef = useRef(false);
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setValue(targetString);
+      return;
+    }
+
+    const match = targetString.match(/^(\D*)(\d+)(\D*)$/);
+    if (!match) {
+      setValue(targetString);
+      return;
+    }
+
+    const prefix = match[1] || '';
+    const targetNumber = parseInt(match[2], 10);
+    const suffix = match[3] || '';
+
+    setValue(`${prefix}0${suffix}`);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimatedRef.current) {
+          hasAnimatedRef.current = true;
+          
+          let startTime = null;
+          const animate = (currentTime) => {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            
+            const currentNumber = Math.floor(easedProgress * targetNumber);
+            setValue(`${prefix}${currentNumber}${suffix}`);
+            
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              setValue(targetString);
+            }
+          };
+          
+          requestAnimationFrame(animate);
+          if (elementRef.current) {
+            observer.unobserve(elementRef.current);
+          }
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [targetString, duration]);
+
+  return { ref: elementRef, value };
+}
 
 /* ── Constante de configuração rápida ─────────────────── */
 const CONFIG = {
   nomePagina:     'Criação de Sites em Uberlândia',           // Ex: "SEO Local Uberlândia"
-  whatsappUrl:    'https://wa.me/5534999999999', // Substituir pelo link real
+  whatsappUrl:    'https://wa.me/5534992362596?text=Ol%C3%A1%2C%20vim%20pela%20Landing%20Page%20da%20Off-Data%20e%20quero%20falar%20com%20a%20equipe.',
   logoUrl:        null,                          // Passar URL do logo SVG ou null
   logoAlt:        'Off-Data',
 };
+
+const heroDesktopImg = '/imagens/home-pagina-venda01.avif';
+const heroMobileImg = '/imagens/home-pagina-venda01-mobile.avif';
 
 /* ═══════════════════════════════════════════════════════
    ESTILOS GLOBAIS — injetados via <style> para garantir
@@ -71,7 +143,7 @@ const GLOBAL_CSS = `
   .offdata-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 10em 1.75rem;
+    padding: 6.5em 1.75rem;
     width: 100%;
   }
   @media (max-width: 767px) { .offdata-container { padding: 5em 1.25rem; } }
@@ -604,7 +676,7 @@ const GLOBAL_CSS = `
   }
 
   /* A img dentro do painel cobre 100% sem distorcer */
-  .lp-hero__image-panel > * {
+  .lp-hero__image-panel > *, .lp-hero__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -645,13 +717,26 @@ const GLOBAL_CSS = `
   /* Mobile: scrim vira gradiente vertical (escurece topo onde fica o texto) */
   @media (max-width: 767px) {
     .lp-hero__scrim {
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(4,10,25,0.65) 0%,
-          rgba(4,10,25,0.35) 40%,
-          rgba(4,10,25,0) 65%
-        );
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 14, 26, 0.75) 0%,
+        rgba(10, 14, 26, 0.55) 40%,
+        rgba(10, 14, 26, 0.1) 70%,
+        transparent 100%
+      );
+    }
+
+    .lp-hero__image {
+      object-position: center top;
+    }
+
+    .lp-hero__eyebrow,
+    .lp-hero__content > p {
+      background: rgba(10, 14, 26, 0.35);
+      backdrop-filter: blur(8px);
+      border-radius: 8px;
+      padding: 0.25rem 0.75rem;
+      width: fit-content;
     }
   }
 
@@ -682,11 +767,18 @@ const GLOBAL_CSS = `
     align-items: flex-start;
   }
 
+  .lp-hero__action-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
   /* Mobile: imagem continua full-bleed, texto sobreposto */
   @media (max-width: 767px) {
     .lp-hero {
-      min-height: 100vh;
+      min-height: 100dvh;
       background: #0a0f20;
+      padding-bottom: env(safe-area-inset-bottom, 1.5rem);
     }
 
     .lp-hero__image-panel {
@@ -699,18 +791,78 @@ const GLOBAL_CSS = `
       height: 100%;
     }
 
-    .lp-hero__image-panel > * {
+    .lp-hero__image-panel > *, .lp-hero__image {
       height: 100%;
       object-position: 65% center;
     }
 
     .lp-hero__inner {
-      padding: 7rem 1.25rem 3.5em;
+      padding: 7rem 1.25rem 0;
       align-items: flex-start;
     }
 
     .lp-hero__content {
       max-width: 100%;
+      min-height: calc(100dvh - 85px - 7rem);
+    }
+
+    .lp-hero__action-block {
+      margin-top: auto;
+      padding-top: 2rem;
+    }
+  }
+
+  /* ══════════════════════════════════════════════════════
+     MARQUEE INFINITO
+  ══════════════════════════════════════════════════════ */
+  .offdata-marquee {
+    background: var(--white);
+    color: var(--blue);
+    padding: 1.5em 0;
+    overflow: hidden;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .offdata-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: scroll 42s linear infinite;
+  }
+
+  .offdata-marquee__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .offdata-marquee__list li {
+    font-family: var(--font-mono);
+    font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .offdata-marquee__list li::after {
+    content: "·";
+    opacity: 0.35;
+    color: var(--blue);
+    margin: 0 1.25em;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .offdata-marquee__track {
+      animation: none;
     }
   }
 
@@ -775,6 +927,44 @@ const GLOBAL_CSS = `
     transform: translateY(-3px);
   }
 
+  .lp-metrics__grid > div {
+    border-radius: var(--radius-card, 0.375em);
+    box-shadow: 0 0 0 rgba(4, 74, 179, 0);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .lp-metrics__grid > div {
+      animation: metricGlowPulse 3.2s ease-in-out infinite;
+    }
+    /* leve dessincronização entre os 4 cards para não pulsarem em uníssono */
+    .lp-metrics__grid > div:nth-child(2) { animation-delay: 0.5s; }
+    .lp-metrics__grid > div:nth-child(3) { animation-delay: 1s; }
+    .lp-metrics__grid > div:nth-child(4) { animation-delay: 1.5s; }
+  }
+  
+  @keyframes metricGlowPulse {
+    0%, 100% {
+      box-shadow: 0 0 14px rgba(4, 74, 179, 0.12),
+                  0 0 2px rgba(4, 74, 179, 0.05);
+    }
+    50% {
+      box-shadow: 0 0 28px rgba(4, 74, 179, 0.28),
+                  0 0 8px rgba(4, 74, 179, 0.12);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    @keyframes metricGlowPulse {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(4, 74, 179, 0.10);
+      }
+      50% {
+        box-shadow: 0 0 22px rgba(4, 74, 179, 0.24);
+      }
+    }
+  }
+
   /* Badge circular com ícone */
   .lp-metric__badge {
     width: 3em;
@@ -809,11 +999,12 @@ const GLOBAL_CSS = `
   /* Label em Fragment Mono, cor discreta */
   .lp-metric__label {
     font-family: var(--font-mono);
-    font-size: 0.68em;
+    font-size: clamp(0.78rem, 0.95vw, 0.9rem);
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: rgba(21, 21, 21, 0.5);
-    line-height: 1.3;
+    letter-spacing: 0.02em;
+    color: rgba(21, 21, 21, 0.68);
+    line-height: 1.4;
   }
 
   /* ══════════════════════════════════════════════════════
@@ -850,8 +1041,41 @@ const GLOBAL_CSS = `
   .lp-service-item__img-col {
     width: 100%;
     aspect-ratio: 16 / 10;
-    border-radius: 0.375em;
+    border-radius: var(--radius-card, 0.375em);
     overflow: hidden;
+    box-shadow: 0 0 0 rgba(4, 74, 179, 0);
+    transition: box-shadow 0.3s ease;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .lp-service-item__img-col {
+      animation: serviceImgGlowPulse 3.6s ease-in-out infinite;
+    }
+    /* dessincronizar levemente entre os 3 blocos de serviço */
+    .lp-service-item:nth-of-type(2) .lp-service-item__img-col { animation-delay: 0.7s; }
+    .lp-service-item:nth-of-type(3) .lp-service-item__img-col { animation-delay: 1.4s; }
+  }
+
+  @keyframes serviceImgGlowPulse {
+    0%, 100% {
+      box-shadow: 0 0 14px rgba(4, 74, 179, 0.12),
+                  0 0 2px rgba(4, 74, 179, 0.05);
+    }
+    50% {
+      box-shadow: 0 0 28px rgba(4, 74, 179, 0.28),
+                  0 0 8px rgba(4, 74, 179, 0.12);
+    }
+  }
+
+  @media (max-width: 767px) {
+    @keyframes serviceImgGlowPulse {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(4, 74, 179, 0.10);
+      }
+      50% {
+        box-shadow: 0 0 22px rgba(4, 74, 179, 0.24);
+      }
+    }
   }
   
   .lp-service-item--reverse .lp-service-item__img-col {
@@ -1284,35 +1508,62 @@ const SERVICE_LIST = [
     desc: 'Ideal para empresas que querem passar credibilidade e centralizar informações. Estrutura otimizada para aparecer no Google quando alguém busca pelo seu serviço em Uberlândia.',
     ctaText: 'Saiba mais',
     ctaPrimary: false,
-    imgDesc: 'IMG: Serviço 1',
+    images: [
+      {
+        src800: '/assets/services/site-institucional/img-1-800w.avif',
+        src1400: '/assets/services/site-institucional/img-1-1400w.avif',
+        alt: 'Site institucional profissional criado para empresa em Uberlândia — página inicial'
+      },
+      {
+        src800: '/assets/services/site-institucional/img-2-800w.avif',
+        src1400: '/assets/services/site-institucional/img-2-1400w.avif',
+        alt: 'Site institucional profissional criado para empresa em Uberlândia — página interna'
+      }
+    ],
   },
   {
     title: 'Landing Page de Vendas',
     desc: 'Página única focada em conversão, para campanhas de tráfego pago ou lançamento de um produto/serviço específico. Copy persuasiva e formulário de captura integrado.',
     ctaText: 'Saiba mais',
     ctaPrimary: false,
-    imgDesc: 'IMG: Serviço 2',
+    images: [
+      {
+        src800: '/assets/services/landing-page/img-1-800w.avif',
+        src1400: '/assets/services/landing-page/img-1-1400w.avif',
+        alt: 'Landing page de alta conversão criada para produto em Uberlândia — hero principal'
+      },
+      {
+        src800: '/assets/services/landing-page/img-2-800w.avif',
+        src1400: '/assets/services/landing-page/img-2-1400w.avif',
+        alt: 'Landing page de alta conversão criada para produto em Uberlândia — seção de captura'
+      }
+    ],
   },
   {
     title: 'Loja Virtual / E-commerce',
     desc: 'Site preparado para vender online, com catálogo, carrinho, pagamento integrado e otimização para buscas locais e nacionais.',
     ctaText: 'Solicitar agora',
     ctaPrimary: true,
-    imgDesc: 'IMG: Serviço 3',
+    images: [
+      {
+        src800: '/assets/services/loja-virtual/img-1-800w.avif',
+        src1400: '/assets/services/loja-virtual/img-1-1400w.avif',
+        alt: 'Loja virtual moderna e responsiva criada em Uberlândia — vitrine de produtos'
+      },
+      {
+        src800: '/assets/services/loja-virtual/img-2-800w.avif',
+        src1400: '/assets/services/loja-virtual/img-2-1400w.avif',
+        alt: 'Loja virtual moderna e responsiva criada em Uberlândia — checkout e carrinho'
+      }
+    ],
   },
 ];
 
-const PORTFOLIO_ITEMS = [
-  { caption: 'Clínica em Uberlândia' },
-  { caption: 'Escritório de advocacia' },
-  { caption: 'E-commerce de moda local' },
-  { caption: 'Empresa de engenharia' },
-];
 
 const PROCESS_STEPS = [
   { title: 'Diagnóstico', text: 'Entendemos seu negócio, seus concorrentes e o objetivo do site (vender, captar contato ou gerar autoridade).' },
-  { title: 'Planejamento e Design', text: 'Criamos a estrutura e o layout do site, já pensando em SEO e conversão desde o início.' },
-  { title: 'Desenvolvimento', text: 'Construímos o site com performance, responsividade e otimização técnica para Google.' },
+  { title: 'Planejamento e Design', text: <>Criamos a estrutura e o layout do site, já pensando em <a href="/seo-local-uberlandia" className="lp-interlink" style={{ textDecoration: 'underline', color: 'inherit' }}>SEO e conversão</a> desde o início.</> },
+  { title: 'Desenvolvimento', text: <>Construímos o site com foco extremo em <a href="/performance-web" className="lp-interlink" style={{ textDecoration: 'underline', color: 'inherit' }}>performance web</a>, responsividade e otimização técnica para Google.</> },
   { title: 'Lançamento e Suporte', text: 'Site no ar em até 15 dias, com acompanhamento e ajustes nas primeiras semanas.' },
 ];
 
@@ -1325,17 +1576,124 @@ const FAQ_ITEMS = [
 ];
 
 const TESTIMONIALS = [
-  { name: '[Nome do cliente]', role: '[Cargo]', company: '[Empresa]', text: '[Depoimento focado em resultado — ex: número de contatos, facilidade de ser encontrado no Google, prazo cumprido]', rating: 5 },
-  { name: '[Nome do cliente]', role: '[Cargo]', company: '[Empresa]', text: '[Depoimento focado em resultado — ex: número de contatos, facilidade de ser encontrado no Google, prazo cumprido]', rating: 5 },
-  { name: '[Nome do cliente]', role: '[Cargo]', company: '[Empresa]', text: '[Depoimento focado em resultado — ex: número de contatos, facilidade de ser encontrado no Google, prazo cumprido]', rating: 5 },
+  { 
+    name: 'Roberto Alves', 
+    role: 'Diretor Comercial', 
+    company: 'Alves Imóveis', 
+    avatar: '/assets/testimonials/client-1.avif',
+    text: 'Antes a gente dependia só de portal imobiliário e perdia muito cliente para a concorrência. O pessoal da Off-Data criou nosso site profissional do zero, já focado em captar lead aqui na região do Santa Mônica. Em menos de três meses, nosso volume de contatos pelo WhatsApp triplicou porque o site passa muita credibilidade.', 
+    rating: 5 
+  },
+  { 
+    name: 'Dra. Mariana Costa', 
+    role: 'Odontopediatra e Sócia', 
+    company: 'Sorriso & Saúde Clínica', 
+    avatar: '/assets/testimonials/client-2.avif',
+    text: 'Nossa clínica aqui no centro de Uberlândia já era conhecida, mas na internet a gente não existia. Precisávamos de um site que facilitasse o agendamento de consultas. A entrega foi super rápida, o layout ficou com a nossa cara e, hoje, mais da metade dos novos pacientes nos encontram pelo Google e agendam direto pelo site.', 
+    rating: 5 
+  },
+  { 
+    name: 'Thiago Freitas', 
+    role: 'Proprietário', 
+    company: 'Urbano & Co. Vestuário', 
+    avatar: '/assets/testimonials/client-3.avif',
+    text: 'A gente vendia muito pelo Instagram, mas o controle de estoque era um caos e limitava nosso crescimento. Contratamos a loja virtual com a Off-Data e resolvemos isso. O site carrega super rápido no celular (que é de onde vem 90% das clientes) e as vendas fluem no automático pra todo o Brasil, mas com o suporte rápido de uma agência aqui do Fundinho.', 
+    rating: 5 
+  },
 ];
 
 /* ═══════════════════════════════════════════════════════
    COMPONENTE PRINCIPAL
    ═══════════════════════════════════════════════════════ */
+const MetricCard = ({ metric, icon }) => {
+  const { ref, value } = useCountUp(metric.value, 1800);
+  
+  return (
+    <div ref={ref} className="lp-metric">
+      <div className="lp-metric__badge" aria-hidden="true">
+        {icon}
+      </div>
+      <span className="lp-metric__value">{value}</span>
+      <span className="lp-metric__label">{metric.label}</span>
+    </div>
+  );
+};
+
+const ImageRotator = ({ images }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsIntersecting(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion || !isIntersecting) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % images.length);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [isIntersecting, images.length]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="img-rotator"
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden'
+      }}
+    >
+      {images.map((img, i) => {
+        const isActive = i === activeIndex;
+        return (
+          <picture
+            key={i}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              opacity: isActive ? 1 : 0,
+              transition: 'opacity 900ms ease-in-out',
+              zIndex: isActive ? 1 : 0,
+              display: 'block',
+              width: '100%',
+              height: '100%',
+            }}
+          >
+            <source srcSet={`${img.src800} 800w, ${img.src1400} 1400w`} sizes="(max-width: 767px) 100vw, 50vw" type="image/avif" />
+            <img
+              src={img.src1400}
+              alt={img.alt}
+              loading={i === 0 ? "eager" : "lazy"}
+              fetchpriority={i === 0 ? "high" : "auto"}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block'
+              }}
+            />
+          </picture>
+        );
+      })}
+    </div>
+  );
+};
+
 const ServicoLanding = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeDot, setActiveDot] = useState(0);
+  const [openFaq, setOpenFaq] = useState(null);
 
   // Estados do Carrossel de Depoimentos
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -1366,61 +1724,63 @@ const ServicoLanding = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Schema JSON-LD para SEO (FAQ e LocalBusiness)
-  useEffect(() => {
-    const schema = {
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'FAQPage',
-          mainEntity: FAQ_ITEMS.map((item) => ({
-            '@type': 'Question',
-            name: item.question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: item.answer,
-            },
-          })),
+  // Schema JSON-LD para SEO (FAQ e Service)
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'FAQPage',
+        mainEntity: FAQ_ITEMS.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      },
+      {
+        '@type': 'Service',
+        name: 'Criação de Sites Profissionais em Uberlândia',
+        provider: {
+          '@id': 'https://www.offdata.digital/#business'
         },
-        {
-          '@type': 'Service',
-          name: CONFIG.nomePagina,
-          provider: {
-            '@type': 'LocalBusiness',
-            name: 'Off-Data Engenharia Digital',
-            image: 'https://www.offdata.digital/logo.png',
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: '5.0',
-              reviewCount: '[NÚMERO DE AVALIAÇÕES]'
-            },
-            review: TESTIMONIALS.map((t) => ({
-              '@type': 'Review',
-              author: { '@type': 'Person', name: t.name },
-              reviewRating: { '@type': 'Rating', ratingValue: t.rating },
-              reviewBody: t.text
-            }))
-          },
-          areaServed: {
-            '@type': 'City',
-            name: 'Uberlândia',
-          },
-        }
-      ]
-    };
+        areaServed: [
+          { '@type': 'City', name: 'Uberlândia' },
+          { '@type': 'AdministrativeArea', name: 'Triângulo Mineiro' }
+        ]
+      }
+    ]
+  };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.textContent = JSON.stringify(schema);
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+  const pageTitle = "Criação de Site Profissional em Uberlândia | Off-Data";
+  const pageDescription = "Criação de sites profissionais e imersivos para empresas em Uberlândia e no Triângulo Mineiro. Aumente suas vendas com um site premium focado em conversão.";
+  const pageCanonical = "https://www.offdata.digital/criacao-de-sites-uberlandia";
 
   return (
     <div className="lp-root">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={pageCanonical} />
+        
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content="https://www.offdata.digital/imagens/offdata-digital-og.jpg" />
+        <meta property="og:url" content={pageCanonical} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="pt_BR" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content="https://www.offdata.digital/imagens/offdata-digital-og.jpg" />
+
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      </Helmet>
+
       {/* Injeção dos estilos globais */}
       <style>{GLOBAL_CSS}</style>
 
@@ -1431,9 +1791,8 @@ const ServicoLanding = () => {
         <div className="lp-header__inner">
 
           {/* Logo */}
-          <a href="#hero" className="lp-header__logo">
-            <div className="lp-header__logo-mark">OD</div>
-            <span>Off-Data</span>
+          <a href="/" className="lp-header__logo" aria-label="Off-Data">
+            <img src={offDataWhiteLogo} alt="Off-Data" style={{ height: '32px', width: 'auto' }} />
           </a>
 
           {/* Nav central */}
@@ -1465,20 +1824,15 @@ const ServicoLanding = () => {
         <section id="hero" className="lp-hero" aria-label="Hero — Proposta de valor principal">
 
           {/* ── Painel de imagem full-bleed (lado direito, posição absoluta) ── */}
-          <div className="lp-hero__image-panel" aria-hidden="true">
+          <picture className="lp-hero__image-panel" aria-hidden="true">
+            <source media="(max-width: 767px)" srcSet={heroMobileImg} />
             <img
-              src="/imagens/capa-hero-criacao-site-uberlandia.avif"
+              src={heroDesktopImg}
               alt="Criação de site profissional para empresas em Uberlândia — Off-Data"
-              loading="eager"
+              className="lp-hero__image"
               fetchpriority="high"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                borderRadius: 0,
-              }}
             />
-          </div>
+          </picture>
 
           {/* ── Scrim localizado: gradiente sutil que some antes da área das pessoas/monitor ── */}
           <div className="lp-hero__scrim" aria-hidden="true" />
@@ -1490,24 +1844,28 @@ const ServicoLanding = () => {
           <div className="lp-hero__inner">
             <div className="lp-hero__content">
 
-              {/* Tag de contexto */}
-              <div className="offdata-tag offdata-tag--white" style={{ textShadow: '0 1px 10px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.9)' }}>
-                <span className="offdata-tag__cube" aria-hidden="true" style={{ boxShadow: '0 1px 6px rgba(0,0,0,0.7)' }} />
-                <span>CRIAÇÃO DE SITES EM UBERLÂNDIA</span>
-              </div>
+              {/* Heading Group */}
+              <div className="lp-hero__heading-group" style={{ display: 'flex', flexDirection: 'column', gap: '1.5em' }}>
+                {/* Tag de contexto */}
+                <div className="offdata-tag offdata-tag--white lp-hero__eyebrow" style={{ textShadow: '0 1px 10px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.9)' }}>
+                  <span className="offdata-tag__cube" aria-hidden="true" style={{ boxShadow: '0 1px 6px rgba(0,0,0,0.7)' }} />
+                  <span>CRIAÇÃO DE SITES EM UBERLÂNDIA</span>
+                </div>
 
-              {/* H1 */}
-              <h1 className="offdata-h1" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.95)' }}>
-                Criação de Sites em Uberlândia para Empresas que Querem Vender Mais
-              </h1>
+                {/* H1 */}
+                <h1 className="offdata-h1" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.95)' }}>
+                  Criação de Sites em Uberlândia para Empresas que Querem Vender Mais
+                </h1>
+              </div>
 
               {/* Subtexto */}
               <p className="offdata-body" style={{ maxWidth: '42ch', textShadow: '0 1px 10px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.9)' }}>
                 Desenvolvemos sites profissionais, rápidos e otimizados para Google, feitos para transformar visitantes em clientes. Atendimento local, prazo definido e suporte contínuo.
               </p>
 
-              {/* Cards de Diferenciais — glassmorphism denso */}
-              <div style={{
+              <div className="lp-hero__action-block">
+                {/* Cards de Diferenciais — glassmorphism denso */}
+                <div style={{
                 background: 'rgba(10,15,30,0.75)',
                 backdropFilter: 'blur(10px)',
                 WebkitBackdropFilter: 'blur(10px)',
@@ -1592,10 +1950,33 @@ const ServicoLanding = () => {
                   <span>+40 empresas de Uberlândia já têm site com a Off-Data</span>
                 </div>
               </div>
+              </div>
 
             </div>
           </div>
 
+        </section>
+
+        {/* ═══════════════════════════════════════════
+            MARQUEE INFINITO
+        ═══════════════════════════════════════════ */}
+        <section className="offdata-marquee" aria-label="Nossos serviços e área de atendimento">
+          <div className="offdata-marquee__track">
+            <ul className="offdata-marquee__list">
+              <li>Sites Institucionais</li>
+              <li>Landing Pages</li>
+              <li>Lojas Virtuais</li>
+              <li>Uberlândia</li>
+              <li>SEO Técnico Incluso</li>
+            </ul>
+            <ul className="offdata-marquee__list" aria-hidden="true">
+              <li>Sites Institucionais</li>
+              <li>Landing Pages</li>
+              <li>Lojas Virtuais</li>
+              <li>Uberlândia</li>
+              <li>SEO Técnico Incluso</li>
+            </ul>
+          </div>
         </section>
 
         {/* ═══════════════════════════════════════════
@@ -1621,27 +2002,13 @@ const ServicoLanding = () => {
 
             <div className="lp-metrics__grid">
               {METRICS.map((m, i) => (
-                <div key={i} className="lp-metric">
-
-                  {/* Badge circular com ícone */}
-                  <div className="lp-metric__badge" aria-hidden="true">
-                    {METRIC_ICONS[i]}
-                  </div>
-
-                  {/* Número grande */}
-                  <span className="lp-metric__value">{m.value}</span>
-
-                  {/* Label Fragment Mono */}
-                  <span className="lp-metric__label">{m.label}</span>
-
-                </div>
+                <MetricCard key={i} metric={m} icon={METRIC_ICONS[i]} />
               ))}
             </div>
 
           </div>
         </section>
 
-        <hr className="lp-divider" />
 
         {/* ═══════════════════════════════════════════
             4. VISÃO GERAL DO SERVIÇO
@@ -1674,27 +2041,27 @@ const ServicoLanding = () => {
               <div className="lp-overview__images">
                 {/* Imagem principal — 60% da largura, altura total da colagem */}
                 <div className="lp-overview__img-1" style={{ display: 'flex', flexDirection: 'column' }}>
-                  <div
-                    className="img-placeholder img-placeholder--light"
-                    style={{ width: '100%', flex: 1, borderRadius: '0.375em', minHeight: 0 }}
-                    role="img"
-                    aria-label="IMG: Operação principal"
-                  >
-                    <div className="img-placeholder__icon">📷</div>
-                    <div>IMG: [Operação de<br />carga em pista]</div>
-                  </div>
+                  <picture style={{ width: '100%', flex: 1, display: 'block', minHeight: 0 }}>
+                    <source srcSet="/assets/services/servico-overview-1.avif" type="image/avif" />
+                    <img 
+                      src="/assets/services/servico-overview-1.avif" 
+                      alt="Operação principal da empresa em Uberlândia" 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0.375em' }}
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
                 {/* Imagem secundária — 40% restante, mesma altura */}
                 <div className="lp-overview__img-2" style={{ display: 'flex', flexDirection: 'column' }}>
-                  <div
-                    className="img-placeholder img-placeholder--light"
-                    style={{ width: '100%', flex: 1, borderRadius: '0.375em', minHeight: 0 }}
-                    role="img"
-                    aria-label="IMG: Equipe ou detalhe"
-                  >
-                    <div className="img-placeholder__icon">📸</div>
-                    <div>IMG: [Equipe<br />em campo]</div>
-                  </div>
+                  <picture style={{ width: '100%', flex: 1, display: 'block', minHeight: 0 }}>
+                    <source srcSet="/assets/services/servico-overview-2.avif" type="image/avif" />
+                    <img 
+                      src="/assets/services/servico-overview-2.avif" 
+                      alt="Detalhe de equipe ou estrutura em campo" 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0.375em' }}
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
               </div>
 
@@ -1721,15 +2088,7 @@ const ServicoLanding = () => {
                   
                   {/* Coluna de Imagem */}
                   <div className="lp-service-item__img-col">
-                    <div
-                      className="img-placeholder img-placeholder--light"
-                      style={{ width: '100%', height: '100%' }}
-                      role="img"
-                      aria-label={svc.imgDesc}
-                    >
-                      <div className="img-placeholder__icon">🖼</div>
-                      <div>{svc.imgDesc}</div>
-                    </div>
+                    <ImageRotator images={svc.images} />
                   </div>
 
                   {/* Coluna de Texto */}
@@ -1776,39 +2135,7 @@ const ServicoLanding = () => {
               </p>
             </div>
 
-            <div className="lp-gallery__grid" role="list" aria-label="Galeria de projetos">
-              {PORTFOLIO_ITEMS.map((item, i) => (
-                <div key={i} className="lp-gallery-item" role="listitem">
-                  <div className="lp-gallery-item__img">
-                    <div
-                      className="img-placeholder img-placeholder--light"
-                      style={{ width: '100%', height: '100%', border: '1px solid rgba(0,0,0,0.1)' }}
-                      role="img"
-                      aria-label={`IMG: ${item.caption}`}
-                    >
-                      <div className="img-placeholder__icon">🖼</div>
-                      <div>IMG: {item.caption}</div>
-                    </div>
-                  </div>
-                  <div className="lp-gallery-item__caption" style={{ color: 'var(--black)' }}>{item.caption}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Dots de paginação visual */}
-            <div className="lp-gallery__dots" role="tablist" aria-label="Paginação da galeria">
-              {PORTFOLIO_ITEMS.map((_, i) => (
-                <button
-                  key={i}
-                  className={`lp-dot ${activeDot === i ? 'active' : ''}`}
-                  style={{ borderColor: 'var(--black)', background: activeDot === i ? 'var(--blue)' : 'transparent' }}
-                  onClick={() => setActiveDot(i)}
-                  role="tab"
-                  aria-selected={activeDot === i}
-                  aria-label={`Página ${i + 1} da galeria`}
-                />
-              ))}
-            </div>
+            <SharedPortfolioCarousel items={realEstatePortfolioItems} />
 
           </div>
         </section>
@@ -1922,10 +2249,11 @@ const ServicoLanding = () => {
 
                         {/* Header do Card */}
                         <div style={{ display: 'flex', gap: '1em', alignItems: 'center', marginBottom: '1.5em' }}>
-                          {/* Avatar inicial — font-main, peso 500 */}
-                          <div style={{ width: '3em', height: '3em', borderRadius: '50%', background: 'var(--blue)', color: 'var(--white)', display: 'grid', placeItems: 'center', fontFamily: 'var(--font-main)', fontWeight: 500, fontSize: '1.1em', flexShrink: 0 }}>
-                            {t.name.substring(1,3)}
-                          </div>
+                          {/* Avatar com foto */}
+                          <picture style={{ width: '3.5em', height: '3.5em', borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: '2px solid rgba(4, 74, 179, 0.1)' }}>
+                            <source srcSet={t.avatar} type="image/avif" />
+                            <img src={t.avatar} alt={`Foto de perfil de ${t.name}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                          </picture>
                           <div>
                             {/* Nome — font-main, peso 500, tamanho em */}
                             <div style={{ fontFamily: 'var(--font-main)', fontWeight: 500, color: 'var(--black)', fontSize: '1em', lineHeight: 1.2 }}>{t.name}</div>
@@ -2016,10 +2344,15 @@ const ServicoLanding = () => {
         <section id="cta" className="lp-cta-banner" aria-label="CTA — Chamada para ação" style={{ minHeight: '45vh', display: 'flex', alignItems: 'center' }}>
           
           <div className="lp-cta-banner__bg" aria-hidden="true">
-            <div className="img-placeholder" style={{ borderRadius: 0, border: 'none' }}>
-              <div className="img-placeholder__icon">📷</div>
-              <div>IMG: Operação logística/contêiner em movimento<br />(object-fit: cover)</div>
-            </div>
+            <picture style={{ width: '100%', height: '100%', display: 'block' }}>
+              <source srcSet="/assets/services/cta-bg.avif" type="image/avif" />
+              <img 
+                src="/assets/services/cta-bg.avif" 
+                alt="Equipe operando em negócios" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                loading="lazy"
+              />
+            </picture>
           </div>
           
           <div className="lp-cta-banner__overlay" aria-hidden="true" style={{ background: 'rgba(0,0,0,0.65)' }}></div>
@@ -2053,8 +2386,8 @@ const ServicoLanding = () => {
         <div className="lp-footer__inner">
 
           {/* Coluna Logo (Esquerda) */}
-          <div className="lp-footer__brand">
-            Off-Data
+          <div className="lp-footer__brand" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={offDataWhiteLogo} alt="Off-Data" style={{ height: '40px', width: 'auto' }} />
           </div>
 
           {/* Colunas de Links (Direita / Abaixo no Mobile) */}
@@ -2092,7 +2425,7 @@ const ServicoLanding = () => {
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
-            <a href="#" className="lp-social-btn" aria-label="Instagram Off-Data" rel="noopener noreferrer" target="_blank">
+            <a href="https://www.instagram.com/offdata.digital_/" className="lp-social-btn" aria-label="Instagram Off-Data" rel="noopener noreferrer" target="_blank">
               <IconInstagram />
             </a>
           </div>
