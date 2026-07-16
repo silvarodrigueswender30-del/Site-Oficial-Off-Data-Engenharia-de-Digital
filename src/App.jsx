@@ -13,7 +13,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 const LegalPage = lazy(() => import('./components/legal/LegalPage'));
 const AgencyPage = lazy(() => import('./components/agency/AgencyPage'));
-const ImmersiveSitesPage = lazy(() => import('./components/services/immersive-sites/ImmersiveSitesPage'));
+// Removido import do ImmersiveSitesPage
 const SeoLocalPage = lazy(() => import('./components/services/seo-local/SeoLocalPage'));
 const PaidTrafficPage = lazy(() => import('./components/services/paid-traffic/PaidTrafficPage'));
 const LandingPagesPage = lazy(() => import('./components/services/landing-pages/LandingPagesPage'));
@@ -76,7 +76,7 @@ function AppContent() {
   if (path === '/criacao-de-sites-uberlandia' || previewPage === 'criacao-de-sites-uberlandia') {
     return (
       <Suspense fallback={null}>
-        <ImmersiveSitesPage />
+        <ServicoLanding />
       </Suspense>
     );
   }

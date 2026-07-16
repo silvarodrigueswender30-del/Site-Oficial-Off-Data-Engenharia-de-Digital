@@ -89,27 +89,36 @@ generateRoute('agencia', {
 
 // --- Immersive Sites ---
 generateRoute('criacao-de-sites-uberlandia', {
-  title: 'Criação de Sites em Uberlândia | Off-Data Digital',
-  description: 'Criação de sites profissionais em Uberlândia para empresas que precisam de presença digital premium, performance, SEO e conversão.',
+  title: 'Criação de Site Profissional em Uberlândia | Off-Data',
+  description: 'Criação de sites profissionais e imersivos para empresas em Uberlândia e no Triângulo Mineiro. Aumente suas vendas com um site premium focado em conversão.',
   canonical: 'https://www.offdata.digital/criacao-de-sites-uberlandia',
   image: 'https://www.offdata.digital/imagens/offdata-digital-og.jpg',
   imageAlt: 'Criação de sites imersivos premium pela Off-Data Digital',
   schema: {
     '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'Criação de Sites Imersivos Premium',
-    description: 'Criação de sites profissionais em Uberlândia para empresas que precisam de presença digital premium, performance, SEO e conversão.',
-    provider: {
-      '@type': 'ProfessionalService',
-      '@id': 'https://www.offdata.digital/#business',
-      name: 'Off-Data Engenharia Digital',
-      url: 'https://www.offdata.digital/'
-    },
-    areaServed: [
-      { '@type': 'City', name: 'Uberlândia' },
-      { '@type': 'AdministrativeArea', name: 'Triângulo Mineiro' }
-    ],
-    url: 'https://www.offdata.digital/criacao-de-sites-uberlandia'
+    '@graph': [
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          { '@type': 'Question', name: 'Quanto custa criar um site para empresa em Uberlândia?', acceptedAnswer: { '@type': 'Answer', text: 'O valor varia conforme o tipo de site (institucional, landing page ou e-commerce) e as funcionalidades necessárias. Fazemos um diagnóstico gratuito antes de fechar a proposta, para garantir um orçamento justo para o seu projeto.' } },
+          { '@type': 'Question', name: 'Quanto tempo demora para o site ficar pronto?', acceptedAnswer: { '@type': 'Answer', text: 'Em média, entregamos sites institucionais em até 15 dias úteis após a aprovação do briefing e do conteúdo. Projetos mais complexos, como e-commerce, podem levar mais tempo.' } },
+          { '@type': 'Question', name: 'Vocês atendem empresas fora de Uberlândia?', acceptedAnswer: { '@type': 'Answer', text: 'Sim. Além de Uberlândia, atendemos empresas em toda a região do Triângulo Mineiro, com reuniões remotas ou presenciais, conforme a necessidade do cliente.' } },
+          { '@type': 'Question', name: 'O site vai aparecer no Google?', acceptedAnswer: { '@type': 'Answer', text: 'Todos os nossos sites são construídos com estrutura técnica otimizada para SEO desde o início (velocidade, responsividade, tags corretas). Isso cria a base para o site rankear — os resultados de posicionamento também dependem de conteúdo e tempo.' } },
+          { '@type': 'Question', name: 'Preciso fornecer o conteúdo (textos e imagens) do site?', acceptedAnswer: { '@type': 'Answer', text: 'Você pode fornecer o material ou contar com o nosso apoio para estruturar os textos e sugerir imagens, garantindo uma comunicação clara e alinhada ao seu negócio.' } }
+        ]
+      },
+      {
+        '@type': 'Service',
+        name: 'Criação de Sites Profissionais em Uberlândia',
+        provider: {
+          '@id': 'https://www.offdata.digital/#business'
+        },
+        areaServed: [
+          { '@type': 'City', name: 'Uberlândia' },
+          { '@type': 'AdministrativeArea', name: 'Triângulo Mineiro' }
+        ]
+      }
+    ]
   }
 });
 
