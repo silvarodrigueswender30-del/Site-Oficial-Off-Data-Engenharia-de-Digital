@@ -1404,22 +1404,9 @@ const GLOBAL_CSS = `
 /* ═══════════════════════════════════════════════════════
    ÍCONES INLINE (SVG simples — substituir por lib real)
    ═══════════════════════════════════════════════════════ */
-const IconCheck = () => (
-  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-    <path d="M1.5 5L4 7.5L8.5 2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
 const IconArrow = () => (
   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
     <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const IconPlaceholder = ({ label }) => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.5 }}>
-    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-    <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5"/>
   </svg>
 );
 
@@ -1482,24 +1469,6 @@ const METRICS = [
   { value: '180%',   label: 'Aumento médio de tráfego orgânico' },
   { value: '2x',     label: 'Mais contatos pelo site' },
   { value: '15d',    label: 'Prazo médio de entrega' },
-];
-
-const SERVICE_CARDS = [
-  {
-    id: '01',
-    title: '[Serviço / Benefício 1]',
-    desc:  '[Descrição curta de 1-2 linhas explicando o valor principal deste ponto]',
-  },
-  {
-    id: '02',
-    title: '[Serviço / Benefício 2]',
-    desc:  '[Descrição curta de 1-2 linhas explicando o valor principal deste ponto]',
-  },
-  {
-    id: '03',
-    title: '[Serviço / Benefício 3]',
-    desc:  '[Descrição curta de 1-2 linhas explicando o valor principal deste ponto]',
-  },
 ];
 
 const SERVICE_LIST = [
@@ -1693,7 +1662,6 @@ const ImageRotator = ({ images }) => {
 
 const ServicoLanding = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [openFaq, setOpenFaq] = useState(null);
 
   // Estados do Carrossel de Depoimentos
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -1824,7 +1792,7 @@ const ServicoLanding = () => {
         <section id="hero" className="lp-hero" aria-label="Hero — Proposta de valor principal">
 
           {/* ── Painel de imagem full-bleed (lado direito, posição absoluta) ── */}
-          <picture className="lp-hero__image-panel" aria-hidden="true">
+          <picture className="lp-hero__image-panel">
             <source media="(max-width: 767px)" srcSet={heroMobileImg} />
             <img
               src={heroDesktopImg}
@@ -2395,10 +2363,10 @@ const ServicoLanding = () => {
             {FOOTER_COLUMNS.map((col) => (
               <div key={col.title}>
                 <div className="lp-footer-col__title">{col.title}</div>
-                <ul className="lp-footer-col__links" role="list">
+                <ul className="lp-footer-col__links">
                   {col.links.map((link, j) => (
                     <li key={j}>
-                      <a href="#">{link}</a>
+                      <a href="/">{link}</a>
                     </li>
                   ))}
                 </ul>
@@ -2416,10 +2384,10 @@ const ServicoLanding = () => {
           </span>
 
           <div className="lp-footer__socials" aria-label="Redes sociais">
-            <a href="#" className="lp-social-btn" aria-label="LinkedIn Off-Data" rel="noopener noreferrer" target="_blank">
+            <a href="/" className="lp-social-btn" aria-label="LinkedIn Off-Data" rel="noopener noreferrer" target="_blank">
               <IconLinkedin />
             </a>
-            <a href="#" className="lp-social-btn" aria-label="Facebook Off-Data" rel="noopener noreferrer" target="_blank">
+            <a href="/" className="lp-social-btn" aria-label="Facebook Off-Data" rel="noopener noreferrer" target="_blank">
               {/* Fake FB Icon */}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
