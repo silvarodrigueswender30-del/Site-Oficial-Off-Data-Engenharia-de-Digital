@@ -1418,6 +1418,7 @@ const IconInstagram = () => (
   </svg>
 );
 
+// eslint-disable-next-line no-unused-vars
 const IconLinkedin = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
     <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" strokeWidth="1.5"/>
@@ -1427,25 +1428,40 @@ const IconLinkedin = () => (
 
 const FOOTER_COLUMNS = [
   {
-    title: 'Empresa',
-    links: ['Início', 'Sobre nós', 'Nossa visão', 'Carreiras'],
+    title: 'Agência',
+    links: [
+      { label: 'Início', href: '/#home' },
+      { label: 'Serviços', href: '/#products' },
+      { label: 'Nichos', href: '/#built-for' },
+      { label: 'Sobre', href: '/agencia' },
+      { label: 'Contato', href: CONFIG.whatsappUrl },
+    ],
   },
   {
     title: 'Serviços',
-    links: ['Site Institucional', 'Landing Page', 'E-commerce'],
+    links: [
+      { label: 'SEO Local', href: '/seo-local-uberlandia' },
+      { label: 'Tráfego Cirúrgico', href: '/trafego-pago-uberlandia' },
+      { label: 'Landing Pages High-Ticket', href: '/landing-pages-high-ticket' },
+      { label: 'Performance Web', href: '/performance-web' },
+      { label: 'Conteúdo Técnico', href: '/conteudo-tecnico' },
+      { label: 'Automação B2B', href: '/automacao-comercial-b2b' },
+    ],
   },
   {
-    title: 'Recursos',
-    links: ['Central de ajuda', 'Guias e eBooks'],
+    title: 'Conteúdo',
+    links: [
+      { label: 'Estratégias', href: '/#strategies-title' },
+      { label: 'Blog', href: '/#strategies-title' },
+    ],
   },
   {
-    title: 'Suporte',
-    links: ['Fale conosco', 'Documentação', 'Parceiros'],
+    title: 'Social',
+    links: [
+      { label: 'Instagram', href: 'https://www.instagram.com/offdata.digital_/' },
+      { label: 'Perfil da Empresa', href: 'https://share.google/Sw8bCp5a2K4DAPCVn' },
+    ],
   },
-  {
-    title: 'Contato',
-    links: ['LinkedIn', 'Instagram'],
-  }
 ];
 
 /* ═══════════════════════════════════════════════════════
@@ -1792,7 +1808,8 @@ const ServicoLanding = () => {
         <section id="hero" className="lp-hero" aria-label="Hero — Proposta de valor principal">
 
           {/* ── Painel de imagem full-bleed (lado direito, posição absoluta) ── */}
-          <picture className="lp-hero__image-panel">
+          {/* eslint-disable-next-line jsx-a11y/aria-unsupported-elements */}
+          <picture className="lp-hero__image-panel" aria-hidden="true">
             <source media="(max-width: 767px)" srcSet={heroMobileImg} />
             <img
               src={heroDesktopImg}
@@ -2366,7 +2383,7 @@ const ServicoLanding = () => {
                 <ul className="lp-footer-col__links">
                   {col.links.map((link, j) => (
                     <li key={j}>
-                      <a href="/">{link}</a>
+                      <a href={link.href}>{link.label}</a>
                     </li>
                   ))}
                 </ul>
@@ -2384,15 +2401,15 @@ const ServicoLanding = () => {
           </span>
 
           <div className="lp-footer__socials" aria-label="Redes sociais">
-            <a href="/" className="lp-social-btn" aria-label="LinkedIn Off-Data" rel="noopener noreferrer" target="_blank">
+            {/* TODO: reativar quando LinkedIn/Facebook da Off-Data existirem — trocar href pela URL real */}
+            {/* <a href="/" className="lp-social-btn" aria-label="LinkedIn Off-Data" rel="noopener noreferrer" target="_blank">
               <IconLinkedin />
-            </a>
-            <a href="/" className="lp-social-btn" aria-label="Facebook Off-Data" rel="noopener noreferrer" target="_blank">
-              {/* Fake FB Icon */}
+            </a> */}
+            {/* <a href="/" className="lp-social-btn" aria-label="Facebook Off-Data" rel="noopener noreferrer" target="_blank">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </a>
+            </a> */}
             <a href="https://www.instagram.com/offdata.digital_/" className="lp-social-btn" aria-label="Instagram Off-Data" rel="noopener noreferrer" target="_blank">
               <IconInstagram />
             </a>
