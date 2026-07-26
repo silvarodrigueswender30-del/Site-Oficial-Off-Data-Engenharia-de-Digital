@@ -52,6 +52,14 @@
   ],
   "rewrites": [
     {
+      "source": "/bio",
+      "destination": "/bio/index.html"
+    },
+    {
+      "source": "/bio/",
+      "destination": "/bio/index.html"
+    },
+    {
       "source": "/agencia",
       "destination": "/agencia/index.html"
     },

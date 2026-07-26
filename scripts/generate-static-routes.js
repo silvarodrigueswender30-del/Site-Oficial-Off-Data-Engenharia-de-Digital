@@ -903,3 +903,13 @@ generateRoute('estrategias/automacao-operacoes-comerciais', {
     }
   }
 });
+
+// --- Mini Site (Link-in-Bio) ---
+generateRoute('bio', {
+  title: 'Off-Data Engenharia Digital | Link in Bio',
+  description: 'Agência de engenharia digital e presença online de alto padrão para negócios High Ticket no Triângulo Mineiro.',
+  canonical: 'https://www.offdata.digital/bio',
+  image: 'https://www.offdata.digital/imagens/capa-hero-criacao-site-uberlandia.avif',
+  imageAlt: 'Off-Data Engenharia Digital Link in Bio'
+});
+

@@ -29,6 +29,7 @@ const AuthorityPage = lazy(() => import('./components/strategies/seo-tecnico-aut
 const OperationsPage = lazy(() => import('./components/strategies/automacao-operacoes-comerciais/OperationsPage'));
 const ConstructionWebsitePage = lazy(() => import('./components/strategies/construction-website/ConstructionWebsitePage'));
 const ServicoLanding = lazy(() => import('./pages/ServicoLanding'));
+const BioPage = lazy(() => import('./pages/BioPage'));
 
 function NotFound() {
   useEffect(() => {
@@ -61,6 +62,14 @@ function AppContent() {
     return (
       <Suspense fallback={null}>
         <LegalPage path={path} />
+      </Suspense>
+    );
+  }
+
+  if (path === '/bio' || previewPage === 'bio') {
+    return (
+      <Suspense fallback={null}>
+        <BioPage />
       </Suspense>
     );
   }
