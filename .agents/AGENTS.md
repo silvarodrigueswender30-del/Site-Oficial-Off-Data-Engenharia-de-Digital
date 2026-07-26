@@ -40,3 +40,12 @@ Em qualquer projeto ou página categorizada como **Mini Site Premium (link-in-bi
 - **Lucide Icons**: Ícones vetorizados via `lucide-react`.
 - **Sharp + Plaiceholder**: Pipeline de otimização de imagem e geração de blur placeholders.
 - **qrcode.react**: Geração de QR Code dinâmico para compartilhamento.
+
+---
+
+## Repositório Core dos Mini Sites Premium (Referência Cruzada)
+
+As skills, regras de grid e componentes de mini site vivem oficialmente em:
+`C:\Users\Teste\Downloads\minisite-core\`
+
+Qualquer atualização de regra de grid, motion, drawer, etc. deve ser feita lá primeiro e replicada aqui, não o contrário.
