@@ -43,3 +43,7 @@ public/logos-parceiros/Logo-Branca-300x191.png.webp
 public/logos-parceiros/logo.avif
 public/logos-parceiros/logo.png
 public/logos-parceiros/wDEIMCNeDnF3M2JLgwVqGvSCZA.png
+
+# Nunca ignorar assets públicos
+!public/assets/
+!public/imagens/
