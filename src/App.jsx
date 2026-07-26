@@ -54,7 +54,7 @@ function NotFound() {
 }
 
 function AppContent() {
-  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  const path = window.location.pathname.replace(/\/index\.html$/i, '').replace(/\/+$/, '') || '/';
   const previewPage = new URLSearchParams(window.location.search).get('page');
   const legalPaths = ['/privacy-policy', '/terms-and-conditions', '/cookie-policy'];
 
@@ -231,10 +231,13 @@ function AppContent() {
 }
 
 function App() {
+  const path = window.location.pathname.replace(/\/index\.html$/i, '').replace(/\/+$/, '') || '/';
+  const isBio = path === '/bio';
+
   return (
     <>
       <AppContent />
-      <FloatingWhatsApp />
+      {!isBio && <FloatingWhatsApp />}
     </>
   );
 }
