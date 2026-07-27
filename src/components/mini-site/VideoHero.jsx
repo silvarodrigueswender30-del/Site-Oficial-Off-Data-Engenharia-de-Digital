@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 export default function VideoHero({ 
-  videoSrc = "/videos/hero-bg.mp4", 
-  posterSrc = "/imagens/home-pagina-venda01-mobile.avif",
+  videoMp4 = "/assets/mini-site/hero-video.mp4", 
+  videoWebm = "/assets/mini-site/hero-video.webm",
+  posterSrc = "/assets/mini-site/hero-video-poster.jpg",
   title = "Off-Data Engenharia Digital",
   subtitle = "Presença online de alto padrão & páginas High Ticket para empresas no Triângulo Mineiro."
 }) {
@@ -15,7 +16,7 @@ export default function VideoHero({
       display: 'flex', 
       flexDirection: 'column', 
       alignItems: 'center', 
-      justify: 'space-between', 
+      justifyContent: 'space-between', 
       padding: '24px 0 32px', 
       boxSizing: 'border-box', 
       overflow: 'hidden' 
@@ -31,7 +32,8 @@ export default function VideoHero({
           poster={posterSrc}
           style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }}
         >
-          {videoSrc && <source src={videoSrc} type="video/mp4" />}
+          {videoWebm && <source src={videoWebm} type="video/webm" />}
+          {videoMp4 && <source src={videoMp4} type="video/mp4" />}
         </video>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(3, 7, 18, 0.4) 0%, rgba(3, 7, 18, 0.85) 60%, rgba(3, 7, 18, 1) 100%)' }} />
       </div>
