@@ -76,109 +76,112 @@ export default function BioPage() {
 
   return (
     <MobileLinkLayout>
-      {/* Video Banner & Profile Hero */}
+      {/* 1. Hero Section (Full Bleed Background + Padding 24px no conteúdo) */}
       <VideoHero />
 
-      {/* Grid de Serviços e Links (4 colunas) */}
-      <div className="ms-grid-4" style={{ marginTop: '12px' }}>
-        {/* Card 1 — Sites Profissionais (4 colunas) */}
-        <AnimatedCard 
-          cols={4}
-          title="Criação de Sites Profissionais"
-          subtitle="Sites de alta velocidade e design imersivo para vendas"
-          icon={Globe}
-          badge="Principal"
-          onClick={() => setActiveDrawer('sites')}
-        />
+      {/* 2. Conteúdo com Padding de 24px fixos e Grid Responsivo (max-width: 430px) */}
+      <div className="ms-content" style={{ marginTop: '16px', paddingBottom: '32px' }}>
+        {/* Grid de Serviços e Links (4 colunas) */}
+        <div className="ms-grid-4">
+          {/* Card 1 — Sites Profissionais (4 colunas) */}
+          <AnimatedCard 
+            cols={4}
+            title="Criação de Sites Profissionais"
+            subtitle="Sites de alta velocidade e design imersivo para vendas"
+            icon={Globe}
+            badge="Principal"
+            onClick={() => setActiveDrawer('sites')}
+          />
 
-        {/* Card 2 — Imobiliárias & Luxo (2 colunas) */}
-        <AnimatedCard 
-          cols={2}
-          title="Imobiliárias de Luxo"
-          subtitle="SEO & Lançamentos"
-          icon={Building2}
-          onClick={() => setActiveDrawer('imobiliaria')}
-        />
+          {/* Card 2 — Imobiliárias & Luxo (2 colunas) */}
+          <AnimatedCard 
+            cols={2}
+            title="Imobiliárias de Luxo"
+            subtitle="SEO & Lançamentos"
+            icon={Building2}
+            onClick={() => setActiveDrawer('imobiliaria')}
+          />
 
-        {/* Card 3 — Clínicas Médicas (2 colunas) */}
-        <AnimatedCard 
-          cols={2}
-          title="Clínicas Médicas"
-          subtitle="Pacientes Premium"
-          icon={Stethoscope}
-          onClick={() => setActiveDrawer('clinicas')}
-        />
+          {/* Card 3 — Clínicas Médicas (2 colunas) */}
+          <AnimatedCard 
+            cols={2}
+            title="Clínicas Médicas"
+            subtitle="Pacientes Premium"
+            icon={Stethoscope}
+            onClick={() => setActiveDrawer('clinicas')}
+          />
 
-        {/* Card 4 — SEO Local (2 colunas) */}
-        <AnimatedCard 
-          cols={2}
-          title="SEO Local Uberlândia"
-          subtitle="Primeira página do Google"
-          icon={Zap}
-          href="https://www.offdata.digital/seo-local-uberlandia"
-        />
+          {/* Card 4 — SEO Local (2 colunas) */}
+          <AnimatedCard 
+            cols={2}
+            title="SEO Local Uberlândia"
+            subtitle="Primeira página do Google"
+            icon={Zap}
+            href="https://www.offdata.digital/seo-local-uberlandia"
+          />
 
-        {/* Card 5 — Tráfego Pago (2 colunas) */}
-        <AnimatedCard 
-          cols={2}
-          title="Tráfego Pago B2B"
-          subtitle="Leads de alta intenção"
-          icon={BarChart3}
-          href="https://www.offdata.digital/trafego-pago-uberlandia"
-        />
-      </div>
+          {/* Card 5 — Tráfego Pago (2 colunas) */}
+          <AnimatedCard 
+            cols={2}
+            title="Tráfego Pago B2B"
+            subtitle="Leads de alta intenção"
+            icon={BarChart3}
+            href="https://www.offdata.digital/trafego-pago-uberlandia"
+          />
+        </div>
 
-      {/* Carrossel de Projetos Embla */}
-      <ProductCarousel items={portfolioItems} />
+        {/* Carrossel de Projetos Embla */}
+        <ProductCarousel items={portfolioItems} />
 
-      {/* Call To Action WhatsApp */}
-      <WhatsappCTA label="Solicitar Diagnóstico no WhatsApp" />
+        {/* Call To Action WhatsApp */}
+        <WhatsappCTA label="Solicitar Diagnóstico no WhatsApp" />
 
-      {/* Botão de Compartilhar / QR Code */}
-      <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-        <button
-          onClick={() => setShowQR(!showQR)}
-          style={{
-            background: 'none',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-            borderRadius: '999px',
-            color: '#9ca3af',
-            padding: '8px 16px',
-            fontSize: '12px',
-            cursor: 'pointer',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '6px'
-          }}
-        >
-          <Share2 size={14} />
-          <span>{showQR ? 'Ocultar QR Code' : 'Exibir QR Code de Compartilhamento'}</span>
-        </button>
+        {/* Botão de Compartilhar / QR Code */}
+        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <button
+            onClick={() => setShowQR(!showQR)}
+            style={{
+              background: 'none',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '999px',
+              color: '#9ca3af',
+              padding: '8px 16px',
+              fontSize: '12px',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}
+          >
+            <Share2 size={14} />
+            <span>{showQR ? 'Ocultar QR Code' : 'Exibir QR Code de Compartilhamento'}</span>
+          </button>
 
-        {showQR && (
-          <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '20px' }}>
-              <QRCodeSVG 
-                value="https://www.offdata.digital/bio" 
-                size={160}
-                bgColor="#FFFFFF"
-                fgColor="#044AB3"
-                level="H"
-              />
+          {showQR && (
+            <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ padding: '16px', backgroundColor: '#ffffff', borderRadius: '20px' }}>
+                <QRCodeSVG 
+                  value="https://www.offdata.digital/bio" 
+                  size={160}
+                  bgColor="#FFFFFF"
+                  fgColor="#044AB3"
+                  level="H"
+                />
+              </div>
+              <p style={{ fontSize: '11px', color: '#6b7280', marginTop: '8px' }}>
+                https://www.offdata.digital/bio
+              </p>
             </div>
-            <p style={{ fontSize: '11px', color: '#6b7280', marginTop: '8px' }}>
-              https://www.offdata.digital/bio
-            </p>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
 
-      {/* Footer Minimalista Isolado */}
-      <footer style={{ marginTop: 'auto', paddingBottom: '24px', textAlign: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px' }}>
-        <p style={{ fontSize: '11px', color: '#4b5563', margin: 0 }}>
-          Off-Data Engenharia Digital © {new Date().getFullYear()} — Triângulo Mineiro
-        </p>
-      </footer>
+        {/* Footer Minimalista Isolado */}
+        <footer style={{ marginTop: 'auto', paddingBottom: '24px', textAlign: 'center', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px' }}>
+          <p style={{ fontSize: '11px', color: '#4b5563', margin: 0 }}>
+            Off-Data Engenharia Digital © {new Date().getFullYear()} — Triângulo Mineiro
+          </p>
+        </footer>
+      </div>
 
       {/* Drawer de Detalhes (Vaul) */}
       {activeDrawer && (

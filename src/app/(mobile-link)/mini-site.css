@@ -1,6 +1,7 @@
 /* mini-site.css — Estilos Isolados para Mini Sites Premium (Link-in-Bio) */
 :root {
   --frame-width: 390px;
+  --max-frame-width: 430px;
   --grid-margin: 24px;
   --grid-gutter: 20px;
   --grid-columns: 4;
@@ -31,10 +32,9 @@
 
 .ms-container {
   width: 100%;
-  max-width: var(--frame-width);
+  max-width: var(--max-frame-width);
   margin: 0 auto;
-  padding-left: var(--grid-margin);
-  padding-right: var(--grid-margin);
+  padding: 0;
   box-sizing: border-box;
   position: relative;
   min-height: 100vh;
@@ -43,6 +43,15 @@
   background-color: var(--ms-bg);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
   overflow-x: hidden;
+}
+
+.ms-content {
+  width: 100%;
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
 }
 
 .ms-grid-4 {
@@ -56,7 +65,7 @@
 .ms-col-2 { grid-column: span 2; }
 .ms-col-4 { grid-column: span 4; }
 
-@media (min-width: 391px) {
+@media (min-width: 431px) {
   body {
     background-color: #000000;
   }
