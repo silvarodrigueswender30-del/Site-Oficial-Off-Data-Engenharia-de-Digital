@@ -24,6 +24,7 @@
   },
   "scripts": {
     "build": "react-scripts build && node scripts/generate-static-routes.js",
+    "build:proposta": "node scripts/sync-proposta.js",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "react-scripts test"

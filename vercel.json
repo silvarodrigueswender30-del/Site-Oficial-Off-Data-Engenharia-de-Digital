@@ -48,9 +48,35 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    },
+    {
+      "source": "/proposta-carolina-k8m3vq/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/proposta-carolina-k8m3vq",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     }
   ],
   "rewrites": [
+    {
+      "source": "/proposta-carolina-k8m3vq",
+      "destination": "/proposta-carolina-k8m3vq/index.html"
+    },
+    {
+      "source": "/proposta-carolina-k8m3vq/",
+      "destination": "/proposta-carolina-k8m3vq/index.html"
+    },
     {
       "source": "/bio",
       "destination": "/bio/index.html"

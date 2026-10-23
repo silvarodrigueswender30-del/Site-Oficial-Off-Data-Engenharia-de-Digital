@@ -17,6 +17,19 @@ npm run build
 
 O build otimizado é gerado na pasta `build/`.
 
+## Propostas Comerciais Dedicadas
+
+As propostas comerciais interativas (ex.: Carolina — Pousadas Paraty) são desenvolvidas como micro-apps independentes (Vite + React) e servidas sob subcaminhos dedicados em `public/`:
+
+- Rota: `/proposta-carolina-k8m3vq`
+- Arquivos estáticos em: `public/proposta-carolina-k8m3vq/`
+- Para atualizar o build da proposta a partir do repositório de desenvolvimento:
+  ```bash
+  npm run build:proposta
+  ```
+- O roteamento no `vercel.json` direciona a rota para o `index.html` correspondente e injeta cabeçalhos HTTP de segurança (`X-Robots-Tag: noindex, nofollow, noarchive`). A proposta não é indexada por motores de busca nem exposta no `sitemap.xml`.
+
+
 ## Deploy na Vercel
 
 Ao importar o repositório, use a pasta `SITE` como **Root Directory** caso ela não seja a raiz do repositório.
