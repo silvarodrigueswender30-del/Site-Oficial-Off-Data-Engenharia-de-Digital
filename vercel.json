@@ -68,7 +68,7 @@
       ]
     },
     {
-      "source": "/proposta-pousada-zita-pedro-zp48e2/(.*)",
+      "source": "/proposta-pousada-zita-pedro-zp48e2",
       "headers": [
         {
           "key": "X-Robots-Tag",
@@ -77,7 +77,16 @@
       ]
     },
     {
-      "source": "/proposta-pousada-zita-pedro-zp48e2",
+      "source": "/proposta-pousada-zita-pedro-zp48e2/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/proposta-pousada-zita-pedro-zp48e2/index.html",
       "headers": [
         {
           "key": "X-Robots-Tag",
