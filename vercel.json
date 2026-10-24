@@ -66,6 +66,24 @@
           "value": "noindex, nofollow, noarchive"
         }
       ]
+    },
+    {
+      "source": "/proposta-pousada-zita-pedro-zp48e2/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/proposta-pousada-zita-pedro-zp48e2",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     }
   ],
   "rewrites": [
@@ -76,6 +94,14 @@
     {
       "source": "/proposta-carolina-k8m3vq/",
       "destination": "/proposta-carolina-k8m3vq/index.html"
+    },
+    {
+      "source": "/proposta-pousada-zita-pedro-zp48e2",
+      "destination": "/proposta-pousada-zita-pedro-zp48e2/index.html"
+    },
+    {
+      "source": "/proposta-pousada-zita-pedro-zp48e2/",
+      "destination": "/proposta-pousada-zita-pedro-zp48e2/index.html"
     },
     {
       "source": "/bio",
